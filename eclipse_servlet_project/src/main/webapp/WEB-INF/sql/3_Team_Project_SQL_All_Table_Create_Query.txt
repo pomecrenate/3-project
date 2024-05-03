@@ -1,0 +1,61 @@
+-- 업태
+CREATE TABLE business_type (
+    business_type_code NUMBER PRIMARY KEY NOT NULL, -- 업태 코드
+    business_type_name VARCHAR2(100) NOT NULL -- 업태명
+);
+
+-- 종목
+CREATE TABLE business_item (
+    business_item_code NUMBER PRIMARY KEY NOT NULL, -- 종목 코드
+    business_item_name VARCHAR2(100) NOT NULL -- 종목명
+);
+
+-- 부서
+CREATE TABLE department (
+    department_code NUMBER PRIMARY KEY NOT NULL, -- 부서 코드
+    department_name VARCHAR2(100) NOT NULL -- 부서명
+);
+
+-- 직위
+CREATE TABLE position (
+    position_code NUMBER PRIMARY KEY NOT NULL, -- 직위 코드
+    position_name VARCHAR2(100) NOT NULL -- 직위명
+);
+
+-- 회사
+CREATE TABLE company (
+    company_code NUMBER PRIMARY KEY NOT NULL, -- 회사 코드
+    business_type_code NUMBER NOT NULL, -- 업태 코드
+    business_item_code NUMBER NOT NULL, -- 종목 코드
+    company_name VARCHAR2(255) NOT NULL, -- 회사명
+    ceo_name VARCHAR2(100) NOT NULL, -- 대표명
+    business_number VARCHAR2(20) NOT NULL, -- 사업자 번호
+    corporate_number VARCHAR2(20) NOT NULL, -- 법인 번호
+    establishment_date DATE NOT NULL, -- 설립일
+    website VARCHAR2(100) NOT NULL, -- 홈페이지
+    address VARCHAR2(255) NOT NULL, -- 주소
+    phone_number VARCHAR2(20) NOT NULL, -- 전화 번호
+    fax_number VARCHAR2(20) NOT NULL, -- 팩스 번호
+    FOREIGN KEY (business_type_code) REFERENCES business_type(business_type_code),
+    FOREIGN KEY (business_item_code) REFERENCES business_item(business_item_code)
+);
+
+-- 사원
+CREATE TABLE employee (
+    employee_code NUMBER PRIMARY KEY NOT NULL, -- 사원 코드
+    company_code NUMBER NOT NULL, -- 회사 코드
+    department_code NUMBER NOT NULL, -- 부서 코드
+    position_code NUMBER NOT NULL, -- 직위 코드
+    employee_name VARCHAR2(100) NOT NULL, -- 사원명
+    employment_type VARCHAR2(50) NOT NULL, -- 고용 형태 (정규직, 계약직, 임시직, 파견직, 위촉직, 일용직)
+    address VARCHAR2(255) NOT NULL, -- 주소
+    phone_number VARCHAR2(20) NOT NULL, -- 전화 번호
+    email VARCHAR2(100) NOT NULL, -- 이메일
+    birth_date DATE NOT NULL, -- 생년월일
+    hire_date DATE NOT NULL, -- 고용일
+    leaving_date DATE, -- 퇴사일
+    status VARCHAR2(50) NOT NULL, -- 고용 상태 (재직, 퇴직) 등록 시 기본 재직으로 자동 입력
+    FOREIGN KEY (company_code) REFERENCES company(company_code),
+    FOREIGN KEY (department_code) REFERENCES department(department_code),
+    FOREIGN KEY (position_code) REFERENCES position(position_code)
+);
