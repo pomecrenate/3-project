@@ -40,18 +40,22 @@ CREATE TABLE company (
     FOREIGN KEY (business_item_code) REFERENCES business_item(business_item_code)
 );
 
+-- 회사 코드 시퀀스
+CREATE SEQUENCE seq_company_code;
+
 -- 사원
 CREATE TABLE employee (
     employee_code NUMBER PRIMARY KEY NOT NULL, -- 사원 코드
     company_code NUMBER NOT NULL, -- 회사 코드
-    department_code NUMBER NOT NULL, -- 부서 코드
-    position_code NUMBER NOT NULL, -- 직위 코드
+    department_code NUMBER, -- 부서 코드
+    position_code NUMBER, -- 직위 코드
     employee_name VARCHAR2(100) NOT NULL, -- 사원명
     employment_type VARCHAR2(50) NOT NULL, -- 고용 형태 (정규직, 계약직, 임시직, 파견직, 위촉직, 일용직)
-    address VARCHAR2(255) NOT NULL, -- 주소
-    phone_number VARCHAR2(20) NOT NULL, -- 전화 번호
-    email VARCHAR2(100) NOT NULL, -- 이메일
-    birth_date DATE NOT NULL, -- 생년월일
+    address VARCHAR2(255), -- 주소
+    phone_number VARCHAR2(20), -- 전화 번호
+    email VARCHAR2(100), -- 이메일
+    birth_number NUMBER, -- 생년월일 (주민번호 앞자리)
+    resident_number NUMBER, -- 주민번호 뒷자리
     hire_date DATE NOT NULL, -- 고용일
     leaving_date DATE, -- 퇴사일
     status VARCHAR2(50) NOT NULL, -- 고용 상태 (재직, 퇴직) 등록 시 기본 재직으로 자동 입력
@@ -59,3 +63,6 @@ CREATE TABLE employee (
     FOREIGN KEY (department_code) REFERENCES department(department_code),
     FOREIGN KEY (position_code) REFERENCES position(position_code)
 );
+
+-- 사원 코드 시퀀스
+CREATE SEQUENCE seq_employee_code;

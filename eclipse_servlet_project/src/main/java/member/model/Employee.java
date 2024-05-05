@@ -1,139 +1,156 @@
 package member.model;
+
 import java.time.LocalDate;
 
-public class Employee{
-	
-	private int employeeCode; // 社員コード
-	private Company company; // 会社コード
-	private Department department; // 部署コード
-	private Position position; // 職位コード
-	private String employeeName; // 社員名
-	private String employmentType; // 雇用形態
-	private LocalDate hireDate; // 入社日
-	private String address; // 居所
-	private String phoneNumber; // 電話番号
-	private String email; // メール
-	private LocalDate birthdate; // 生年月日
-	private String status; // 状態
-	
-	// 生成器
-	public Employee(int employeeCode, Company company, Department department, Position position, String employeeName,
-			String employmentType, LocalDate hireDate, String address, String phoneNumber, String email,
-			LocalDate birthdate, String status) {
-		super();
-		this.employeeCode = employeeCode;
-		this.company = company;
-		this.department = department;
-		this.position = position;
-		this.employeeName = employeeName;
-		this.employmentType = employmentType;
-		this.hireDate = hireDate;
-		this.address = address;
-		this.phoneNumber = phoneNumber;
-		this.email = email;
-		this.birthdate = birthdate;
-		this.status = status;
-	}
+public class Employee {
 
-	// getter, setter
-	public int getEmployeeCode() {
-		return employeeCode;
-	}
+  private int employeeCode; // 社員コード
+  private Company company; // 会社コード
+  private Department department; // 部署コード
+  private Position position; // 職位コード
+  private String employeeName; // 社員名
+  private String employmentType; // 雇用形態
+  private LocalDate hireDate; // 入社日
+  private LocalDate leavingDate; // 退社日
+  private int birthNumber; // 生年月日番號
+  private int residentNumber; // 住民番號
+  private String address; // 居所
+  private String phoneNumber; // 電話番號
+  private String email; // メール
+  private String status; // 状態
 
-	public void setEmployeeCode(int employeeCode) {
-		this.employeeCode = employeeCode;
-	}
+  // 生成器
+  public Employee(int employeeCode, Company company, Department department, Position position,
+      String employeeName, String employmentType, LocalDate hireDate, LocalDate leavingDate,
+      int birthNumber, int residentNumber, String address, String phoneNumber, String email,
+      String status) {
+    super();
+    this.employeeCode = employeeCode;
+    this.company = company;
+    this.department = department;
+    this.position = position;
+    this.employeeName = employeeName;
+    this.employmentType = employmentType;
+    this.hireDate = hireDate;
+    this.leavingDate = leavingDate;
+    this.birthNumber = birthNumber;
+    this.residentNumber = residentNumber;
+    this.address = address;
+    this.phoneNumber = phoneNumber;
+    this.email = email;
+    this.status = status;
+  }
 
-	public Company getCompany() {
-		return company;
-	}
+  // getter, setter
+  public int getEmployeeCode() {
+    return employeeCode;
+  }
 
-	public void setCompany(Company company) {
-		this.company = company;
-	}
+  public void setEmployeeCode(int employeeCode) {
+    this.employeeCode = employeeCode;
+  }
 
-	public Department getDepartment() {
-		return department;
-	}
+  public Company getCompany() {
+    return company;
+  }
 
-	public void setDepartment(Department department) {
-		this.department = department;
-	}
+  public void setCompany(Company company) {
+    this.company = company;
+  }
 
-	public Position getPosition() {
-		return position;
-	}
+  public Department getDepartment() {
+    return department;
+  }
 
-	public void setPosition(Position position) {
-		this.position = position;
-	}
+  public void setDepartment(Department department) {
+    this.department = department;
+  }
 
-	public String getEmployeeName() {
-		return employeeName;
-	}
+  public Position getPosition() {
+    return position;
+  }
 
-	public void setEmployeeName(String employeeName) {
-		this.employeeName = employeeName;
-	}
+  public void setPosition(Position position) {
+    this.position = position;
+  }
 
-	public String getEmploymentType() {
-		return employmentType;
-	}
+  public String getEmployeeName() {
+    return employeeName;
+  }
 
-	public void setEmploymentType(String employmentType) {
-		this.employmentType = employmentType;
-	}
+  public void setEmployeeName(String employeeName) {
+    this.employeeName = employeeName;
+  }
 
-	public LocalDate getHireDate() {
-		return hireDate;
-	}
+  public String getEmploymentType() {
+    return employmentType;
+  }
 
-	public void setHireDate(LocalDate hireDate) {
-		this.hireDate = hireDate;
-	}
+  public void setEmploymentType(String employmentType) {
+    this.employmentType = employmentType;
+  }
 
-	public String getAddress() {
-		return address;
-	}
+  public LocalDate getHireDate() {
+    return hireDate;
+  }
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
+  public void setHireDate(LocalDate hireDate) {
+    this.hireDate = hireDate;
+  }
 
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
+  public LocalDate getLeavingDate() {
+    return leavingDate;
+  }
 
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
+  public void setLeavingDate(LocalDate leavingDate) {
+    this.leavingDate = leavingDate;
+  }
 
-	public String getEmail() {
-		return email;
-	}
+  public int getBirthNumber() {
+    return birthNumber;
+  }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+  public void setBirthNumber(int birthNumber) {
+    this.birthNumber = birthNumber;
+  }
 
-	public LocalDate getBirthdate() {
-		return birthdate;
-	}
+  public int getResidentNumber() {
+    return residentNumber;
+  }
 
-	public void setBirthdate(LocalDate birthdate) {
-		this.birthdate = birthdate;
-	}
+  public void setResidentNumber(int residentNumber) {
+    this.residentNumber = residentNumber;
+  }
 
-	public String getStatus() {
-		return status;
-	}
+  public String getAddress() {
+    return address;
+  }
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
+  public void setAddress(String address) {
+    this.address = address;
+  }
 
-	
+  public String getPhoneNumber() {
+    return phoneNumber;
+  }
 
-	
-	
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
 }
