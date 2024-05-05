@@ -41,7 +41,7 @@ CREATE TABLE company (
 );
 
 -- 회사 코드 시퀀스
-CREATE SEQUENCE seq_company_code;
+CREATE SEQUENCE seq_company;
 
 -- 사원
 CREATE TABLE employee (
@@ -65,4 +65,4 @@ CREATE TABLE employee (
 );
 
 -- 사원 코드 시퀀스
-CREATE SEQUENCE seq_employee_code;
+CREATE SEQUENCE seq_employee;
