@@ -1,149 +1,154 @@
 -- business_type 테이블에 값 삽입 (대분류)
-INSERT INTO business_type (business_type_code, business_type_name)
-VALUES (1, '農業, 林業 및 漁業'),                      -- 1. 농업, 임업 및 어업
-       (2, '鉱業'),                                 -- 2. 광업
-       (3, '製造業'),                               -- 3. 제조업
-       (4, '電気、ガス、蒸気および水道業'),        -- 4. 전기, 가스, 증기 및 수도사업
-       (5, '建設業'),                               -- 5. 건설업
-       (6, '卸売および小売業'),                    -- 6. 도소매 및 소매업
-       (7, '運輸および倉庫業'),                    -- 7. 운수 및 창고업
-       (8, '宿泊および飲食サービス業'),            -- 8. 숙박 및 음식점업
-       (9, '情報通信業'),                          -- 9. 정보통신업
-       (10, '金融および保険業'),                    -- 10. 금융 및 보험업
-       (11, '不動産業'),                           -- 11. 부동산업
-       (12, '専門、科学および技術サービス業'),      -- 12. 전문, 과학 및 기술 서비스업
-       (13, '事務サービス業'),                      -- 13. 사무 서비스업
-       (14, '公共行政、国防および社会保障行政'),    -- 14. 공공행정, 국방 및 사회보장행정
-       (15, '教育サービス業'),                      -- 15. 교육 서비스업
-       (16, '医療および福祉業'),                    -- 16. 의료 및 사회복지서비스업
-       (17, '芸術、スポーツおよびレクリエーションサービス業'),  -- 17. 예술, 스포츠 및 여가관련 서비스업
-       (18, '団体、修理およびその他の個人サービス業');      -- 18. 단체, 수리 및 기타 개인 서비스업
+INSERT ALL
+INTO business_type (business_type_code, business_type_name) VALUES (1, '農業, 林業 及び 漁業')                      -- 1. 농업, 임업 및 어업
+INTO business_type (business_type_code, business_type_name) VALUES (2, '鉱業')                                 -- 2. 광업
+INTO business_type (business_type_code, business_type_name) VALUES (3, '製造業')                               -- 3. 제조업
+INTO business_type (business_type_code, business_type_name) VALUES (4, '電気、ガス、蒸気及び水道業')        -- 4. 전기, 가스, 증기 및 수도사업
+INTO business_type (business_type_code, business_type_name) VALUES (5, '建設業')                               -- 5. 건설업
+INTO business_type (business_type_code, business_type_name) VALUES (6, '卸売及び小売業')                    -- 6. 도소매 및 소매업
+INTO business_type (business_type_code, business_type_name) VALUES (7, '運輸及び倉庫業')                    -- 7. 운수 및 창고업
+INTO business_type (business_type_code, business_type_name) VALUES (8, '宿泊及び飲食サービス業')           -- 8. 숙박 및 음식점업
+INTO business_type (business_type_code, business_type_name) VALUES (9, '情報通信業')                          -- 9. 정보통신업
+INTO business_type (business_type_code, business_type_name) VALUES (10, '金融及び保険業')                    -- 10. 금융 및 보험업
+INTO business_type (business_type_code, business_type_name) VALUES (11, '不動産業')                           -- 11. 부동산업
+INTO business_type (business_type_code, business_type_name) VALUES (12, '専門、科学及び技術サービス業')      -- 12. 전문, 과학 및 기술 서비스업
+INTO business_type (business_type_code, business_type_name) VALUES (13, '事務サービス業')                      -- 13. 사무 서비스업
+INTO business_type (business_type_code, business_type_name) VALUES (14, '公共行政、国防及び社会保障行政')    -- 14. 공공행정, 국방 및 사회보장행정
+INTO business_type (business_type_code, business_type_name) VALUES (15, '教育サービス業')                      -- 15. 교육 서비스업
+INTO business_type (business_type_code, business_type_name) VALUES (16, '医療及び福祉業')                    -- 16. 의료 및 사회복지서비스업
+INTO business_type (business_type_code, business_type_name) VALUES (17, '芸術、スポーツ及びレクリエーションサービス業')  -- 17. 예술, 스포츠 및 여가관련 서비스업
+INTO business_type (business_type_code, business_type_name) VALUES (18, '団体、修理及びその他の個人サービス業')      -- 18. 단체, 수리 및 기타 개인 서비스업
+SELECT * FROM dual;
 
 -- business_item 테이블에 값 삽입 (중분류)
-INSERT INTO business_item (business_item_code, business_item_name)
-VALUES (1, '果物および野菜小売業'),                       -- 1. 과실 및 채소 소매업
-       (2, '穀物およびその他の食糧作物栽培業'),          -- 2. 곡물 및 기타 식량작물 재배업
-       (3, '特用作物栽培業'),                           -- 3. 특용작물 재배업
-       (4, '畜産業'),                                   -- 4. 축산업
-       (5, '水産物加工および保存処理業'),               -- 5. 수산물 가공 및 저장 처리업
-       (6, '農業および漁業用機械および設備の賃貸業'),     -- 6. 농업 및 어업용 기계 및 장비 임대업
-       (7, '森林経営および伐採業'),                     -- 7. 임업 및 벌목업
-       (8, '木材栽培業'),                               -- 8. 수목 재배업
-       (9, '造園植物および種子小売業'),                 -- 9. 조경식물 및 식물 종자 소매업
-       (10, '鉱業'),                                   -- 10. 광업
-       (11, '石炭および石油精製品製造業'),             -- 11. 석탄 및 석유 정제품 제조업
-       (12, '鉄鋼および非鉄金属製造業'),               -- 12. 철강 및 비철금속 제조업
-       (13, '金属加工製品製造業'),                      -- 13. 금속 가공 제품 제조업
-       (14, 'その他の機械および設備製造業'),           -- 14. 기타 기계 및 장비 제조업
-       (15, '電子部品、コンピュータ、通信機器製造業'), -- 15. 전자부품, 컴퓨터, 통신장비 제조업
-       (16, '医療用品製造業'),                          -- 16. 의료용품 제조업
-       (17, '食品製造業'),                             -- 17. 식료품 제조업
-       (18, '飲料製造業'),                             -- 18. 음료 제조업
-       (19, 'たばこ製造業'),                           -- 19. 담배제조업
-       (20, '繊維および衣服製造業'),                   -- 20. 섬유 및 의류 제조업
-       (21, '革、バッグおよび靴製造業'),               -- 21. 가죽, 가방 및 신발제조업
-       (22, '木材製品製造業'),                          -- 22. 목재 제품 제조업
-       (23, '紙および紙製品製造業'),                    -- 23. 종이 및 종이제품 제조업
-       (24, '印刷および記録媒体複製業'),                -- 24. 인쇄 및 기록매체 복제업
-       (25, '化学物質および化学製品製造業'),            -- 25. 화학물질 및 화학제품 제조업
-       (26, '医薬品製造業'),                            -- 26. 의약품 제조업
-       (27, '化粧品、石鹸および洗浄剤製造業'),          -- 27. 화장품, 비누 및 세정제 제조업
-       (28, 'プラスチック製品製造業'),                  -- 28. 플라스틱제품 제조업
-       (29, 'ゴム製品製造業'),                         -- 29. 고무제품 제조업
-       (30, '非金属鉱物製品製造業'),                   -- 30. 비금속광물 제품 제조업
-       (31, '紙および板紙、紙容器製造業'),              -- 31. 종이 및 판지, 종이용기 제조업
-       (32, '金属加工、鉱物加工、機械および設備修理業'), -- 32. 금속 가공, 광물 가공, 기계 및 장비수리업
-       (33, '電気機器製造業'),                          -- 33. 전기장비 제조업
-       (34, '一般用途機械製造業'),                      -- 34. 일반 목적용 기계 제조업
-       (35, '特殊用途機械製造業'),                      -- 35. 특수 목적용 기계 제조업
-       (36, '自動車およびトレーラー製造業'),            -- 36. 자동차 및 트레일러 제조업
-       (37, 'その他の輸送機器製造業'),                  -- 37. 기타 운송장비 제조업
-       (38, '家具製造業'),                             -- 38. 가구 제조업
-       (39, 'その他の製品製造業'),                      -- 39. 기타제품 제조업
-       (40, '建設業'),                                 -- 40. 건설업
-       (41, '土木建設業'),                             -- 41. 토목 건설업
-       (42, '建物建設業'),                             -- 42. 건물 건설업
-       (43, '建設機械および設備の賃貸業'),              -- 43. 건설 기계 및 장비 임대업
-       (44, '特殊建設業'),                             -- 44. 특수 건설업
-       (45, '卸売および小売業'),                        -- 45. 도매 및 소매업
-       (46, '自動車および自動車部品小売業'),            -- 46. 자동차 및 자동차 부품 소매업
-       (47, 'オートバイおよび部品小売業'),              -- 47. 모터사이클 및 부품 소매업
-       (48, '衣料品および靴小売業'),                    -- 48. 의류 및 신발 소매업
-       (49, '家電製品小売業'),                          -- 49. 가전제품 소매업
-       (50, 'ペットおよび動物用品小売業'),              -- 50. 애완동물 및 동물용품 소매업
-       (51, '飲食店業'),                               -- 51. 음식점업
-       (52, 'その他の外食飲食店業'),                    -- 52. 기타 외식 음식점업
-       (53, '運輸業'),                                 -- 53. 운수업
-       (54, '陸上旅客運送業'),                         -- 54. 육상 여객 운송업
-       (55, '海上旅客運送業'),                         -- 55. 해상 여객 운송업
-       (56, '航空旅客運送業'),                         -- 56. 항공 여객 운송업
-       (57, '鉄道旅客運送業'),                         -- 57. 철도 여객 운송업
-       (58, '陸上貨物運送業'),                         -- 58. 육상 화물 운송업
-       (59, '海上貨物運送業'),                         -- 59. 해상 화물 운송업
-       (60, '航空貨物運送業'),                         -- 60. 항공 화물 운송업
-       (61, '鉄道貨物運送業'),                         -- 61. 철도 화물 운송업
-       (62, '運輸関連サービス業'),                     -- 62. 운송 관련 서비스업
-       (63, '倉庫および運輸関連サービス業'),            -- 63. 창고 및 운송관련 서비스업
-       (64, '通信業'),                                 -- 64. 통신업
-       (65, '電子情報通信機器製造業'),                  -- 65. 전자정보통신장비 제조업
-       (66, '医療、精密、光学器械製造業'),              -- 66. 의료, 정밀, 광학기기 제조업
-       (67, 'その他の情報通信業'),                      -- 67. 기타 정보통신업
-       (68, '金融および保険業'),                       -- 68. 금융 및 보험업
-       (69, '銀行および貯蓄機関'),                     -- 69. 은행 및 저축기관
-       (70, '信用組合および金融機関'),                 -- 70. 신용조합 및 금융기관
-       (71, '証券、保険およびその他の金融投資業'),     -- 71. 증권, 보험 및 기타 금융투자업
-       (72, '不動産業'),                               -- 72. 부동산업
-       (73, '不動産開発および供給業'),                 -- 73. 부동산 개발 및 공급업
-       (74, '不動産仲介業'),                           -- 74. 부동산 중개업
-       (75, '不動産賃貸業'),                           -- 75. 부동산 임대업
-       (76, '専門、科学および技術サービス業'),         -- 76. 전문, 과학 및 기술 서비스업
-       (77, '専門サービス業'),                         -- 77. 전문 서비스업
-       (78, 'ビジネス施設管理、事業支援および賃貸サービス業'), -- 78. 사업시설 관리, 사업지원 및 임대 서비스업
-       (79, 'ビジネス管理および事業支援サービス業'),  -- 79. 사업 관리 및 사업 지원 서비스업
-       (80, '賃貸サービス業'),                         -- 80. 임대 서비스업
-       (81, '公共行政、国防および社会保障行政'),       -- 81. 공공행정, 국방 및 사회보장 행정
-       (82, '国防および社会保障行政'),                 -- 82. 국방 및 사회보장 행정
-       (83, '公共行政および国際機関'),                 -- 83. 공공행정 및 국제기구
-       (84, '教育サービス業'),                         -- 84. 교육 서비스업
-       (85, '小中等教育機関'),                         -- 85. 초중등 교육기관
-       (86, '高等教育機関'),                           -- 86. 고등 교육기관
-       (87, '特殊教育機関'),                           -- 87. 특수 교육기관
-       (88, 'その他の教育機関'),                       -- 88. 기타 교육기관
-       (89, '保健および社会福祉サービス業'),           -- 89. 보건업 및 사회복지 서비스업
-       (90, '病院および医療機器製造業'),                 -- 90. 병원 및 의료기기 제조업
-       (91, '保健補助および支援サービス業'),           -- 91. 보건 보조 및 보조서비스업
-       (92, '社会福祉サービス業'),                     -- 92. 사회복지 서비스업
-       (93, '保育所および保育施設運営業'),             -- 93. 유아원 및 보육시설 운영업
-       (94, '介護保護サービス業'),                     -- 94. 요양보호 서비스업
-       (95, 'その他の社会福祉サービス業'),             -- 95. 기타 사회복지 서비스업
-       (96, '芸術、スポーツおよびレジャー関連サービス業'), -- 96. 예술, 스포츠 및 여가관련 서비스업
-       (97, '芸術およびスポーツ関連サービス業'),      -- 97. 예술 및 스포츠관련 서비스업
-       (98, '観光業'),                                 -- 98. 관광업
-       (99, 'スポーツおよび娯楽関連サービス業'),        -- 99. 체육 및 오락관련 서비스업
-       (100, '室内運動およびレクリエーション施設運営業'), -- 100. 실내 운동 및 오락시설 운영업
-       (101, '葬祭および関連サービス業'),              -- 101. 장례 및 관련 서비스업
-       (102, '代行およびその他の個人サービス業'),      -- 102. 대행 및 기타 개인 서비스업
-       (103, '協会および団体'),                        -- 103. 협회 및 단체
-       (104, '修理およびその他の個人サービス業');      -- 104. 수리 및 기타 개인 서비스업
+INSERT ALL
+INTO business_item (business_item_code, business_item_name) VALUES (1, '果物及び野菜小売業')                       -- 1. 과실 및 채소 소매업
+INTO business_item (business_item_code, business_item_name) VALUES (2, '穀物及びその他の食糧作物栽培業')          -- 2. 곡물 및 기타 식량작물 재배업
+INTO business_item (business_item_code, business_item_name) VALUES (3, '特用作物栽培業')                           -- 3. 특용작물 재배업
+INTO business_item (business_item_code, business_item_name) VALUES (4, '畜産業')                                   -- 4. 축산업
+INTO business_item (business_item_code, business_item_name) VALUES (5, '水産物加工及び保存処理業')               -- 5. 수산물 가공 및 저장 처리업
+INTO business_item (business_item_code, business_item_name) VALUES (6, '農業及び漁業用機械及び設備の賃貸業')     -- 6. 농업 및 어업용 기계 및 장비 임대업
+INTO business_item (business_item_code, business_item_name) VALUES (7, '森林経営及び伐採業')                     -- 7. 임업 및 벌목업
+INTO business_item (business_item_code, business_item_name) VALUES (8, '木材栽培業')                               -- 8. 수목 재배업
+INTO business_item (business_item_code, business_item_name) VALUES (9, '造園植物及び種子小売業')                 -- 9. 조경식물 및 식물 종자 소매업
+INTO business_item (business_item_code, business_item_name) VALUES (10, '鉱業')                                   -- 10. 광업
+INTO business_item (business_item_code, business_item_name) VALUES (11, '石炭及び石油精製品製造業')             -- 11. 석탄 및 석유 정제품 제조업
+INTO business_item (business_item_code, business_item_name) VALUES (12, '鉄鋼及び非鉄金属製造業')               -- 12. 철강 및 비철금속 제조업
+INTO business_item (business_item_code, business_item_name) VALUES (13, '金属加工製品製造業')                      -- 13. 금속 가공 제품 제조업
+INTO business_item (business_item_code, business_item_name) VALUES (14, 'その他の機械及び設備製造業')           -- 14. 기타 기계 및 장비 제조업
+INTO business_item (business_item_code, business_item_name) VALUES (15, '電子部品、コンピュータ、通信機器製造業') -- 15. 전자부품, 컴퓨터, 통신장비 제조업
+INTO business_item (business_item_code, business_item_name) VALUES (16, '医療用品製造業')                          -- 16. 의료용품 제조업
+INTO business_item (business_item_code, business_item_name) VALUES (17, '食品製造業')                             -- 17. 식료품 제조업
+INTO business_item (business_item_code, business_item_name) VALUES (18, '飲料製造業')                             -- 18. 음료 제조업
+INTO business_item (business_item_code, business_item_name) VALUES (19, 'たばこ製造業')                           -- 19. 담배제조업
+INTO business_item (business_item_code, business_item_name) VALUES (20, '繊維及び衣服製造業')                   -- 20. 섬유 및 의류 제조업
+INTO business_item (business_item_code, business_item_name) VALUES (21, '革、バッグ及び靴製造業')               -- 21. 가죽, 가방 및 신발제조업
+INTO business_item (business_item_code, business_item_name) VALUES (22, '木材製品製造業')                          -- 22. 목재 제품 제조업
+INTO business_item (business_item_code, business_item_name) VALUES (23, '紙及び紙製品製造業')                    -- 23. 종이 및 종이제품 제조업
+INTO business_item (business_item_code, business_item_name) VALUES (24, '印刷及び記録媒体複製業')                -- 24. 인쇄 및 기록매체 복제업
+INTO business_item (business_item_code, business_item_name) VALUES (25, '化学物質及び化学製品製造業')            -- 25. 화학물질 및 화학제품 제조업
+INTO business_item (business_item_code, business_item_name) VALUES (26, '医薬品製造業')                            -- 26. 의약품 제조업
+INTO business_item (business_item_code, business_item_name) VALUES (27, '化粧品、石鹸及び洗浄剤製造業')          -- 27. 화장품, 비누 및 세정제 제조업
+INTO business_item (business_item_code, business_item_name) VALUES (28, 'プラスチック製品製造業')                  -- 28. 플라스틱제품 제조업
+INTO business_item (business_item_code, business_item_name) VALUES (29, 'ゴム製品製造業')                         -- 29. 고무제품 제조업
+INTO business_item (business_item_code, business_item_name) VALUES (30, '非金属鉱物製品製造業')                   -- 30. 비금속광물 제품 제조업
+INTO business_item (business_item_code, business_item_name) VALUES (31, '紙及び板紙、紙容器製造業')              -- 31. 종이 및 판지, 종이용기 제조업
+INTO business_item (business_item_code, business_item_name) VALUES (32, '金属加工、鉱物加工、機械及び設備修理業') -- 32. 금속 가공, 광물 가공, 기계 및 장비수리업
+INTO business_item (business_item_code, business_item_name) VALUES (33, '電気機器製造業')                          -- 33. 전기장비 제조업
+INTO business_item (business_item_code, business_item_name) VALUES (34, '一般用途機械製造業')                      -- 34. 일반 목적용 기계 제조업
+INTO business_item (business_item_code, business_item_name) VALUES (35, '特殊用途機械製造業')                      -- 35. 특수 목적용 기계 제조업
+INTO business_item (business_item_code, business_item_name) VALUES (36, '自動車及びトレーラー製造業')            -- 36. 자동차 및 트레일러 제조업
+INTO business_item (business_item_code, business_item_name) VALUES (37, 'その他の輸送機器製造業')                  -- 37. 기타 운송장비 제조업
+INTO business_item (business_item_code, business_item_name) VALUES (38, '家具製造業')                             -- 38. 가구 제조업
+INTO business_item (business_item_code, business_item_name) VALUES (39, 'その他の製品製造業')                      -- 39. 기타제품 제조업
+INTO business_item (business_item_code, business_item_name) VALUES (40, '建設業')                                 -- 40. 건설업
+INTO business_item (business_item_code, business_item_name) VALUES (41, '土木建設業')                             -- 41. 토목 건설업
+INTO business_item (business_item_code, business_item_name) VALUES (42, '建物建設業')                             -- 42. 건물 건설업
+INTO business_item (business_item_code, business_item_name) VALUES (43, '建設機械及び設備の賃貸業')              -- 43. 건설 기계 및 장비 임대업
+INTO business_item (business_item_code, business_item_name) VALUES (44, '特殊建設業')                             -- 44. 특수 건설업
+INTO business_item (business_item_code, business_item_name) VALUES (45, '卸売及び小売業')                        -- 45. 도매 및 소매업
+INTO business_item (business_item_code, business_item_name) VALUES (46, '自動車及び自動車部品小売業')            -- 46. 자동차 및 자동차 부품 소매업
+INTO business_item (business_item_code, business_item_name) VALUES (47, 'オートバイ及び部品小売業')              -- 47. 모터사이클 및 부품 소매업
+INTO business_item (business_item_code, business_item_name) VALUES (48, '衣料品及び靴小売業')                    -- 48. 의류 및 신발 소매업
+INTO business_item (business_item_code, business_item_name) VALUES (49, '家電製品小売業')                          -- 49. 가전제품 소매업
+INTO business_item (business_item_code, business_item_name) VALUES (50, 'ペット及び動物用品小売業')              -- 50. 애완동물 및 동물용품 소매업
+INTO business_item (business_item_code, business_item_name) VALUES (51, '飲食店業')                               -- 51. 음식점업
+INTO business_item (business_item_code, business_item_name) VALUES (52, 'その他の外食飲食店業')                    -- 52. 기타 외식 음식점업
+INTO business_item (business_item_code, business_item_name) VALUES (53, '運輸業')                                 -- 53. 운수업
+INTO business_item (business_item_code, business_item_name) VALUES (54, '陸上旅客運送業')                         -- 54. 육상 여객 운송업
+INTO business_item (business_item_code, business_item_name) VALUES (55, '海上旅客運送業')                         -- 55. 해상 여객 운송업
+INTO business_item (business_item_code, business_item_name) VALUES (56, '航空旅客運送業')                         -- 56. 항공 여객 운송업
+INTO business_item (business_item_code, business_item_name) VALUES (57, '鉄道旅客運送業')                         -- 57. 철도 여객 운송업
+INTO business_item (business_item_code, business_item_name) VALUES (58, '陸上貨物運送業')                         -- 58. 육상 화물 운송업
+INTO business_item (business_item_code, business_item_name) VALUES (59, '海上貨物運送業')                         -- 59. 해상 화물 운송업
+INTO business_item (business_item_code, business_item_name) VALUES (60, '航空貨物運送業')                         -- 60. 항공 화물 운송업
+INTO business_item (business_item_code, business_item_name) VALUES (61, '鉄道貨物運送業')                         -- 61. 철도 화물 운송업
+INTO business_item (business_item_code, business_item_name) VALUES (62, '運輸関連サービス業')                     -- 62. 운송 관련 서비스업
+INTO business_item (business_item_code, business_item_name) VALUES (63, '倉庫及び運輸関連サービス業')            -- 63. 창고 및 운송관련 서비스업
+INTO business_item (business_item_code, business_item_name) VALUES (64, '通信業')                                 -- 64. 통신업
+INTO business_item (business_item_code, business_item_name) VALUES (65, '電子情報通信機器製造業')                  -- 65. 전자정보통신장비 제조업
+INTO business_item (business_item_code, business_item_name) VALUES (66, '医療、精密、光学器械製造業')              -- 66. 의료, 정밀, 광학기기 제조업
+INTO business_item (business_item_code, business_item_name) VALUES (67, 'その他の情報通信業')                      -- 67. 기타 정보통신업
+INTO business_item (business_item_code, business_item_name) VALUES (68, '金融及び保険業')                       -- 68. 금융 및 보험업
+INTO business_item (business_item_code, business_item_name) VALUES (69, '銀行業')                                 -- 69. 은행업
+INTO business_item (business_item_code, business_item_name) VALUES (70, '信託業')                                 -- 70. 신탁업
+INTO business_item (business_item_code, business_item_name) VALUES (71, '有価証券、商品先物取引業')               -- 71. 유가증권, 상품선물거래업
+INTO business_item (business_item_code, business_item_name) VALUES (72, '保険業')                                 -- 72. 보험업
+INTO business_item (business_item_code, business_item_name) VALUES (73, 'その他の金融業')                          -- 73. 기타 금융업
+INTO business_item (business_item_code, business_item_name) VALUES (74, '不動産業')                               -- 74. 부동산업
+INTO business_item (business_item_code, business_item_name) VALUES (75, '土地賃貸業')                             -- 75. 토지 임대업
+INTO business_item (business_item_code, business_item_name) VALUES (76, '住宅賃貸業')                             -- 76. 주택 임대업
+INTO business_item (business_item_code, business_item_name) VALUES (77, '商業施設賃貸業')                         -- 77. 상업시설 임대업
+INTO business_item (business_item_code, business_item_name) VALUES (78, 'その他の賃貸業')                          -- 78. 기타 임대업
+INTO business_item (business_item_code, business_item_name) VALUES (79, 'サービス業')                             -- 79. 서비스업
+INTO business_item (business_item_code, business_item_name) VALUES (80, '一般事業サービス業')                     -- 80. 일반 사업 서비스업
+INTO business_item (business_item_code, business_item_name) VALUES (81, '教育、研究、産業技術開発、産業訓練業')    -- 81. 교육, 연구, 산업기술개발, 산업훈련업
+INTO business_item (business_item_code, business_item_name) VALUES (82, '情報サービス業')                         -- 82. 정보 서비스업
+INTO business_item (business_item_code, business_item_name) VALUES (83, '宿泊業')                                 -- 83. 숙박업
+INTO business_item (business_item_code, business_item_name) VALUES (84, '飲食料品小売業')                         -- 84. 식품 소매업
+INTO business_item (business_item_code, business_item_name) VALUES (85, '専門店及びその他の小売業')              -- 85. 전문점 및 기타 소매업
+INTO business_item (business_item_code, business_item_name) VALUES (86, '公共交通業')                             -- 86. 공공 교통업
+INTO business_item (business_item_code, business_item_name) VALUES (87, '運輸に附帯するサービス業')               -- 87. 운송에 부수하는 서비스업
+INTO business_item (business_item_code, business_item_name) VALUES (88, 'その他のサービス業')
+INTO business_item (business_item_code, business_item_name) VALUES (89, '保健及び社会福祉サービス業')           -- 89. 보건업 및 사회복지 서비스업
+INTO business_item (business_item_code, business_item_name) VALUES (90, '病院及び医療機器製造業')                 -- 90. 병원 및 의료기기 제조업
+INTO business_item (business_item_code, business_item_name) VALUES (91, '保健補助及び支援サービス業')           -- 91. 보건 보조 및 보조서비스업
+INTO business_item (business_item_code, business_item_name) VALUES (92, '社会福祉サービス業')                     -- 92. 사회복지 서비스업
+INTO business_item (business_item_code, business_item_name) VALUES (93, '保育所及び保育施設運営業')             -- 93. 유아원 및 보육시설 운영업
+INTO business_item (business_item_code, business_item_name) VALUES (94, '介護保護サービス業')                     -- 94. 요양보호 서비스업
+INTO business_item (business_item_code, business_item_name) VALUES (95, 'その他の社会福祉サービス業')             -- 95. 기타 사회복지 서비스업
+INTO business_item (business_item_code, business_item_name) VALUES (96, '芸術、スポーツ及びレジャー関連サービス業') -- 96. 예술, 스포츠 및 여가관련 서비스업
+INTO business_item (business_item_code, business_item_name) VALUES (97, '芸術及びスポーツ関連サービス業')      -- 97. 예술 및 스포츠관련 서비스업
+INTO business_item (business_item_code, business_item_name) VALUES (98, '観光業')                                 -- 98. 관광업
+INTO business_item (business_item_code, business_item_name) VALUES (99, 'スポーツ及び娯楽関連サービス業')        -- 99. 체육 및 오락관련 서비스업
+INTO business_item (business_item_code, business_item_name) VALUES (100, '室内運動及びレクリエーション施設運営業') -- 100. 실내 운동 및 오락시설 운영업
+INTO business_item (business_item_code, business_item_name) VALUES (101, '葬祭及び関連サービス業')              -- 101. 장례 및 관련 서비스업
+INTO business_item (business_item_code, business_item_name) VALUES (102, '代行及びその他の個人サービス業')      -- 102. 대행 및 기타 개인 서비스업
+INTO business_item (business_item_code, business_item_name) VALUES (103, '協会及び団体')                        -- 103. 협회 및 단체
+INTO business_item (business_item_code, business_item_name) VALUES (104, '修理及びその他の個人サービス業')      -- 104. 수리 및 기타 개인 서비스업-- 88. 기타 서비스업
+SELECT * FROM dual;
+
 
 -- department 테이블에 값 삽입
-INSERT INTO department (department_code, department_name)
-VALUES (5, 'デザイン部'),          -- 디자인부
-       (3, 'コンテンツ部'),        -- 콘텐츠부
-       (4, '業務支援部'),          -- 업무지원부
-       (7, '企画戦略部'),          -- 기획전략부
-       (6, '管理部'),              -- 관리부
-       (1, '社長室'),              -- 사장실
-       (2, '開発部');              -- 개발부
+INSERT ALL
+INTO department (department_code, department_name)VALUES (5, 'デザイン部')          -- 디자인부
+INTO department (department_code, department_name)VALUES (3, 'コンテンツ部')        -- 콘텐츠부
+INTO department (department_code, department_name)VALUES (4, '業務支援部')          -- 업무지원부
+INTO department (department_code, department_name)VALUES (7, '企画戦略部')          -- 기획전략부
+INTO department (department_code, department_name)VALUES (6, '管理部')              -- 관리부
+INTO department (department_code, department_name)VALUES (1, '社長室')              -- 사장실
+INTO department (department_code, department_name)VALUES (2, '開発部')              -- 개발부
+SELECT * FROM dual;
 
 -- position 테이블에 값 삽입
-INSERT INTO position (position_code, position_name)
-VALUES (1, '社長'),        -- 사장
-       (2, '取締役'),     -- 이사
-       (3, '部長'),       -- 실장
-       (4, '課長'),       -- 부장
-       (5, '次長'),       -- 차장
-       (6, '課長'),       -- 과장
-       (7, '代理'),       -- 대리
-       (8, '主任'),       -- 주임
-       (9, '一般社員');    -- 사원
+INSERT ALL
+INTO position (position_code, position_name)VALUES (1, '社長')        -- 사장
+INTO position (position_code, position_name)VALUES (2, '取締役')     -- 이사
+INTO position (position_code, position_name)VALUES (3, '部長')       -- 실장
+INTO position (position_code, position_name)VALUES  (4, '課長')       -- 부장
+INTO position (position_code, position_name)VALUES (5, '次長')       -- 차장
+INTO position (position_code, position_name)VALUES (6, '課長')       -- 과장
+INTO position (position_code, position_name)VALUES (7, '代理')       -- 대리
+INTO position (position_code, position_name)VALUES (8, '主任')       -- 주임
+INTO position (position_code, position_name)VALUES (9, '一般社員')    -- 사원
+SELECT * FROM dual;
