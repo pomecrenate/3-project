@@ -5,6 +5,10 @@ public class Position {
 	private String positionName; // 職位名
 	
 	// 生成器	
+	public Position() {
+		super();
+	}
+	
 	public Position(int positionCode, String positionName) {
 		super();
 		this.positionCode = positionCode;

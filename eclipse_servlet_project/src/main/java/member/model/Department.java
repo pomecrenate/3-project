@@ -5,12 +5,17 @@ public class Department {
 	private String departmentName; // 部署名
 	
 	// 生成器
+	public Department() {
+		super();
+	}
+	
 	public Department(int departmentCode, String departmentName) {
 		super();
 		this.departmentCode = departmentCode;
 		this.departmentName = departmentName;
 	}
 	
+
 	// getter, setter
 	public int getDepartmentCode() {
 		return departmentCode;
