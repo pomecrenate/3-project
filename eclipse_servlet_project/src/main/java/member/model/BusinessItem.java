@@ -5,6 +5,10 @@ public class BusinessItem {
 	private String businessItemName; // 種目名
 	
 	// 生成器
+	public BusinessItem() {
+		super();
+	}
+	
 	public BusinessItem(int businessItemCode, String businessItemName) {
 		super();
 		this.businessItemCode = businessItemCode;
@@ -27,6 +31,8 @@ public class BusinessItem {
 	public void setBusinessItemName(String businessItemName) {
 		this.businessItemName = businessItemName;
 	}
+
+
 
 	
 	

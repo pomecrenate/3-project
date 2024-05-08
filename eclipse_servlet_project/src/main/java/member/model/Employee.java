@@ -4,153 +4,156 @@ import java.time.LocalDate;
 
 public class Employee {
 
-  private int employeeCode; // 社員コード
-  private Company company; // 会社コード
-  private Department department; // 部署コード
-  private Position position; // 職位コード
-  private String employeeName; // 社員名
-  private String employmentType; // 雇用形態
-  private LocalDate hireDate; // 入社日
-  private LocalDate leavingDate; // 退社日
-  private int birthNumber; // 生年月日番號
-  private int residentNumber; // 住民番號
-  private String address; // 居所
-  private String phoneNumber; // 電話番號
-  private String email; // メール
-  private String status; // 状態
+	private int employeeCode; // 社員コード
+	private Company company; // 会社コード
+	private Department department; // 部署コード
+	private Position position; // 職位コード
+	private String employeeName; // 社員名
+	private String employmentType; // 雇用形態
+	private LocalDate hireDate; // 入社日
+	private LocalDate leavingDate; // 退社日
+	private int birthNumber; // 生年月日番號
+	private int residentNumber; // 住民番號
+	private String address; // 居所
+	private String phoneNumber; // 電話番號
+	private String email; // メール
+	private String status; // 状態
 
-  // 生成器
-  public Employee(int employeeCode, Company company, Department department, Position position,
-      String employeeName, String employmentType, LocalDate hireDate, LocalDate leavingDate,
-      int birthNumber, int residentNumber, String address, String phoneNumber, String email,
-      String status) {
-    super();
-    this.employeeCode = employeeCode;
-    this.company = company;
-    this.department = department;
-    this.position = position;
-    this.employeeName = employeeName;
-    this.employmentType = employmentType;
-    this.hireDate = hireDate;
-    this.leavingDate = leavingDate;
-    this.birthNumber = birthNumber;
-    this.residentNumber = residentNumber;
-    this.address = address;
-    this.phoneNumber = phoneNumber;
-    this.email = email;
-    this.status = status;
-  }
+	// 生成器
+	public Employee() {
+		super();
+	}
 
-  // getter, setter
-  public int getEmployeeCode() {
-    return employeeCode;
-  }
+	public Employee(int employeeCode, Company company, Department department, Position position, String employeeName,
+			String employmentType, LocalDate hireDate, LocalDate leavingDate, int birthNumber, int residentNumber,
+			String address, String phoneNumber, String email, String status) {
+		super();
+		this.employeeCode = employeeCode;
+		this.company = company;
+		this.department = department;
+		this.position = position;
+		this.employeeName = employeeName;
+		this.employmentType = employmentType;
+		this.hireDate = hireDate;
+		this.leavingDate = leavingDate;
+		this.birthNumber = birthNumber;
+		this.residentNumber = residentNumber;
+		this.address = address;
+		this.phoneNumber = phoneNumber;
+		this.email = email;
+		this.status = status;
+	}
 
-  public void setEmployeeCode(int employeeCode) {
-    this.employeeCode = employeeCode;
-  }
+// getter, setter
+	public int getEmployeeCode() {
+		return employeeCode;
+	}
 
-  public Company getCompany() {
-    return company;
-  }
+	public void setEmployeeCode(int employeeCode) {
+		this.employeeCode = employeeCode;
+	}
 
-  public void setCompany(Company company) {
-    this.company = company;
-  }
+	public Company getCompany() {
+		return company;
+	}
 
-  public Department getDepartment() {
-    return department;
-  }
+	public void setCompany(Company company) {
+		this.company = company;
+	}
 
-  public void setDepartment(Department department) {
-    this.department = department;
-  }
+	public Department getDepartment() {
+		return department;
+	}
 
-  public Position getPosition() {
-    return position;
-  }
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
 
-  public void setPosition(Position position) {
-    this.position = position;
-  }
+	public Position getPosition() {
+		return position;
+	}
 
-  public String getEmployeeName() {
-    return employeeName;
-  }
+	public void setPosition(Position position) {
+		this.position = position;
+	}
 
-  public void setEmployeeName(String employeeName) {
-    this.employeeName = employeeName;
-  }
+	public String getEmployeeName() {
+		return employeeName;
+	}
 
-  public String getEmploymentType() {
-    return employmentType;
-  }
+	public void setEmployeeName(String employeeName) {
+		this.employeeName = employeeName;
+	}
 
-  public void setEmploymentType(String employmentType) {
-    this.employmentType = employmentType;
-  }
+	public String getEmploymentType() {
+		return employmentType;
+	}
 
-  public LocalDate getHireDate() {
-    return hireDate;
-  }
+	public void setEmploymentType(String employmentType) {
+		this.employmentType = employmentType;
+	}
 
-  public void setHireDate(LocalDate hireDate) {
-    this.hireDate = hireDate;
-  }
+	public LocalDate getHireDate() {
+		return hireDate;
+	}
 
-  public LocalDate getLeavingDate() {
-    return leavingDate;
-  }
+	public void setHireDate(LocalDate hireDate) {
+		this.hireDate = hireDate;
+	}
 
-  public void setLeavingDate(LocalDate leavingDate) {
-    this.leavingDate = leavingDate;
-  }
+	public LocalDate getLeavingDate() {
+		return leavingDate;
+	}
 
-  public int getBirthNumber() {
-    return birthNumber;
-  }
+	public void setLeavingDate(LocalDate leavingDate) {
+		this.leavingDate = leavingDate;
+	}
 
-  public void setBirthNumber(int birthNumber) {
-    this.birthNumber = birthNumber;
-  }
+	public int getBirthNumber() {
+		return birthNumber;
+	}
 
-  public int getResidentNumber() {
-    return residentNumber;
-  }
+	public void setBirthNumber(int birthNumber) {
+		this.birthNumber = birthNumber;
+	}
 
-  public void setResidentNumber(int residentNumber) {
-    this.residentNumber = residentNumber;
-  }
+	public int getResidentNumber() {
+		return residentNumber;
+	}
 
-  public String getAddress() {
-    return address;
-  }
+	public void setResidentNumber(int residentNumber) {
+		this.residentNumber = residentNumber;
+	}
 
-  public void setAddress(String address) {
-    this.address = address;
-  }
+	public String getAddress() {
+		return address;
+	}
 
-  public String getPhoneNumber() {
-    return phoneNumber;
-  }
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
-  public void setPhoneNumber(String phoneNumber) {
-    this.phoneNumber = phoneNumber;
-  }
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
 
-  public String getEmail() {
-    return email;
-  }
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
 
-  public void setEmail(String email) {
-    this.email = email;
-  }
+	public String getEmail() {
+		return email;
+	}
 
-  public String getStatus() {
-    return status;
-  }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-  public void setStatus(String status) {
-    this.status = status;
-  }
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 }

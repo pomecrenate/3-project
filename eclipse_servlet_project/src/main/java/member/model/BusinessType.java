@@ -5,11 +5,16 @@ public class BusinessType {
 	private String businessTypeName; // 業態名
 	
 	// 生成器
+	public BusinessType() {
+		super();
+	}
+	
 	public BusinessType(int businessTypeCode, String businessTypeName) {
 		super();
 		this.businessTypeCode = businessTypeCode;
 		this.businessTypeName = businessTypeName;
 	}
+
 
 	// getter, setter
 	public int getBusinessTypeCode() {

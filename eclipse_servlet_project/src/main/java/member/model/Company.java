@@ -17,6 +17,10 @@ public class Company {
 	private String faxNumber; // ファックス番号
 	
 	// 生成器
+	public Company() {
+		super();
+	}
+	
 	public Company(int companyCode, BusinessType businessType, BusinessItem businessItem, String companyName,
 			String ceoName, String businessNumber, String corporateNumber, LocalDate establishmentDate, String website,
 			String address, String phoneNumber, String faxNumber) {
@@ -34,6 +38,7 @@ public class Company {
 		this.phoneNumber = phoneNumber;
 		this.faxNumber = faxNumber;
 	}
+
 
 	// getter, setter
 	public int getCompanyCode() {
