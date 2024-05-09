@@ -32,9 +32,13 @@ public class CompanyDao {
         BusinessType businessType = businessTypeDao.selectByCode(conn, businessTypeCode);
         int businessItemCode = rs.getInt("business_item_code");
         BusinessItem businessItem = businessItemDao.selectByCode(conn, businessItemCode);
+        String id = rs.getString("id");
+        String password = rs.getString("password");
+        LocalDate registerDate = 
+        	rs.getTimestamp("register_date").toLocalDateTime().toLocalDate();
         String companyName = rs.getString("company_name");
-        String ceoName = rs.getString("company_name");
-        String businessNumber = rs.getString("ceo_name");
+        String ceoName = rs.getString("ceo_name");
+        String businessNumber = rs.getString("business_number");
         String corporateNumber = rs.getString("corporate_number");
         LocalDate establishmentDate =
             rs.getTimestamp("establishment_date").toLocalDateTime().toLocalDate();
@@ -42,10 +46,11 @@ public class CompanyDao {
         String address = rs.getString("address");
         String phoneNumber = rs.getString("phone_number");
         String faxNumber = rs.getString("fax_number");
-
-        company = new Company(companyCode, businessType, businessItem, companyName, ceoName,
-            businessNumber, corporateNumber, establishmentDate, website, address, phoneNumber,
-            faxNumber);
+      
+          company = new Company(companyCode, businessType, businessItem, 
+        		  id, password, registerDate, companyName, ceoName, 
+        		  businessNumber, corporateNumber, establishmentDate, 
+        		  website, address, phoneNumber, faxNumber);
       }
 
       System.out.println(company.getCompanyName());

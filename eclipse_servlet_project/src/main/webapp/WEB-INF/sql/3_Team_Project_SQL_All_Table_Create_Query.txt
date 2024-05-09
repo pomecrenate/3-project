@@ -27,6 +27,9 @@ CREATE TABLE company (
     company_code NUMBER PRIMARY KEY NOT NULL, -- 회사 코드
     business_type_code NUMBER NOT NULL, -- 업태 코드
     business_item_code NUMBER NOT NULL, -- 종목 코드
+    id VARCHAR2(100) NOT NULL, -- 아이디
+    password VARCHAR2(100) NOT NULL, -- 비밀번호
+    register_date DATE NOT NULL, -- 가입일
     company_name VARCHAR2(255) NOT NULL, -- 회사명
     ceo_name VARCHAR2(100) NOT NULL, -- 대표명
     business_number VARCHAR2(20) NOT NULL, -- 사업자 번호
