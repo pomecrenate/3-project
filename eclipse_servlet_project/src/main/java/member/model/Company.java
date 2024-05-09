@@ -3,31 +3,37 @@ import java.time.LocalDate;
 
 public class Company {
 
-	private int companyCode; // 会社コード
-	private BusinessType businessType; // 業態コード
-	private BusinessItem businessItem; // 種目コード
-	private String companyName; // 社名
-	private String ceoName; // 代表者名
-	private String businessNumber; // 事業者番号
-	private String corporateNumber; // 法人登録番号
-	private LocalDate establishmentDate; // 設立日
-	private String website; // ホームページ
-	private String address; // 事業場の住所
-	private String phoneNumber; // 電話番号
-	private String faxNumber; // ファックス番号
+	  private int companyCode; // 会社コード
+	  private BusinessType businessType; // 業態コード
+	  private BusinessItem businessItem; // 種目コード
+	  private String id; // アイディー
+	  private String password; // パスワード
+	  private LocalDate registerDate; // 加入日
+	  private String companyName; // 社名
+	  private String ceoName; // 代表者名
+	  private String businessNumber; // 事業者番号
+	  private String corporateNumber; // 法人登録番号
+	  private LocalDate establishmentDate; // 設立日
+	  private String website; // ホームページ
+	  private String address; // 事業場の住所
+	  private String phoneNumber; // 電話番号
+	  private String faxNumber; // ファックス番号
 	
 	// 生成器
-	public Company() {
-		super();
-	}
-	
-	public Company(int companyCode, BusinessType businessType, BusinessItem businessItem, String companyName,
-			String ceoName, String businessNumber, String corporateNumber, LocalDate establishmentDate, String website,
-			String address, String phoneNumber, String faxNumber) {
+    public Company() {
+		  super();
+    }
+
+	public Company(int companyCode, BusinessType businessType, BusinessItem businessItem, String id, String password,
+			LocalDate registerDate, String companyName, String ceoName, String businessNumber, String corporateNumber,
+			LocalDate establishmentDate, String website, String address, String phoneNumber, String faxNumber) {
 		super();
 		this.companyCode = companyCode;
 		this.businessType = businessType;
 		this.businessItem = businessItem;
+		this.id = id;
+		this.password = password;
+		this.registerDate = registerDate;
 		this.companyName = companyName;
 		this.ceoName = ceoName;
 		this.businessNumber = businessNumber;
@@ -38,7 +44,6 @@ public class Company {
 		this.phoneNumber = phoneNumber;
 		this.faxNumber = faxNumber;
 	}
-
 
 	// getter, setter
 	public int getCompanyCode() {
@@ -63,6 +68,30 @@ public class Company {
 
 	public void setBusinessItem(BusinessItem businessItem) {
 		this.businessItem = businessItem;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public LocalDate getRegisterDate() {
+		return registerDate;
+	}
+
+	public void setRegisterDate(LocalDate registerDate) {
+		this.registerDate = registerDate;
 	}
 
 	public String getCompanyName() {
@@ -137,7 +166,5 @@ public class Company {
 		this.faxNumber = faxNumber;
 	}
 
-	
-	
 	
 }
