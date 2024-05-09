@@ -57,8 +57,6 @@ CREATE TABLE employee (
     birth_number NUMBER, -- 생년월일 (주민번호 앞자리)
     resident_number NUMBER, -- 주민번호 뒷자리
     hire_date DATE NOT NULL, -- 고용일
-    leaving_date DATE, -- 퇴사일
-    status VARCHAR2(50) NOT NULL, -- 고용 상태 (재직, 퇴직) 등록 시 기본 재직으로 자동 입력
     FOREIGN KEY (company_code) REFERENCES company(company_code),
     FOREIGN KEY (department_code) REFERENCES department(department_code),
     FOREIGN KEY (position_code) REFERENCES position(position_code)
