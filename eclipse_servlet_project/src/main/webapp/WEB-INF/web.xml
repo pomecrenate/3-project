@@ -23,6 +23,20 @@
 		<listener-class>jdbc.DBCPInitListener</listener-class>
 	</listener>
 
+ 
+  <filter>
+  	<filter-name>LoginCheckFilter</filter-name>
+  	<filter-class>filter.LoginCheckFilter</filter-class>
+  </filter>
+
+ <filter-mapping>
+  	<filter-name>LoginCheckFilter</filter-name>
+  	<url-pattern>/changePassword.do</url-pattern>
+  	<url-pattern>/article/write.do</url-pattern>
+  	<url-pattern>/article/modify.do</url-pattern>
+  	<url-pattern>/article/delete.do</url-pattern>
+  </filter-mapping>
+
 	<context-param>
 		<param-name>poolConfig</param-name>
 		<param-value>
@@ -33,9 +47,10 @@
   		validationQuery=select 1
   		minIdle=3
   		maxTotal=30
-  		poolName=payzone
+  		poolName=board
   	</param-value>
 	</context-param>
+
 
 	<servlet>
 		<servlet-name>ControllerUsingURI</servlet-name>
