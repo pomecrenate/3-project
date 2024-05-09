@@ -12,6 +12,8 @@ public class BusinessItemDao {
     PreparedStatement pstmt = null;
     ResultSet rs = null;
 
+    System.out.println("business item code: " + code);
+
     try {
       pstmt = conn.prepareStatement("select * from business_item where business_item_code = ?");
       pstmt.setInt(1, code);
@@ -25,6 +27,8 @@ public class BusinessItemDao {
 
         businessItem = new BusinessItem(businessItemCode, businessItemName);
       }
+
+      System.out.println(businessItem.getBusinessItemName());
 
       return businessItem;
     } finally {

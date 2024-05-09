@@ -12,6 +12,8 @@ public class BusinessTypeDao {
     PreparedStatement pstmt = null;
     ResultSet rs = null;
 
+    System.out.println("business type code: " + code);
+
     try {
       pstmt = conn.prepareStatement("select * from business_type where business_type_code = ?");
       pstmt.setInt(1, code);
@@ -25,6 +27,8 @@ public class BusinessTypeDao {
 
         businessType = new BusinessType(businessTypeCode, businessTypeName);
       }
+
+      System.out.println(businessType.getBusinessTypeName());
 
       return businessType;
     } finally {

@@ -16,25 +16,27 @@ public class EmployeeDao {
     PreparedStatement pstmt = null;
     ResultSet rs = null;
 
+    System.out.println("employee code: " + code);
+
     try {
       pstmt = conn.prepareStatement("select * from employee where employee_code = ?");
       pstmt.setInt(1, code);
       rs = pstmt.executeQuery();
 
       Employee employee = null;
-      CompanyDao companyDao = null;
-      DepartmentDao departmentDao = null;
-      PositionDao positionDao = null;
+      CompanyDao companyDao = new CompanyDao();
+      DepartmentDao departmentDao = new DepartmentDao();
+      PositionDao positionDao = new PositionDao();
 
       if (rs.next()) {
-        int emplyeeCode = rs.getInt("emplyee_code");
+        int employeeCode = rs.getInt("employee_code");
         int companyCode = rs.getInt("company_code");
         Company company = companyDao.selectByCode(conn, companyCode);
         int departmentCode = rs.getInt("department_code");
         Department department = departmentDao.selectByCode(conn, departmentCode);
         int positionCode = rs.getInt("position_code");
         Position position = positionDao.selectByCode(conn, positionCode);
-        String emplyeeName = rs.getString("employee_name");
+        String employeeName = rs.getString("employee_name");
         String employmentType = rs.getString("employment_type");
         String address = rs.getString("address");
         String phoneNumber = rs.getString("phone_number");
@@ -43,9 +45,11 @@ public class EmployeeDao {
         int residentNumber = rs.getInt("resident_number");
         LocalDate hireDate = rs.getTimestamp("hire_date").toLocalDateTime().toLocalDate();
 
-        employee = new Employee(emplyeeCode, company, department, position, emplyeeName,
+        employee = new Employee(employeeCode, company, department, position, employeeName,
             employmentType, address, phoneNumber, email, birthNumber, residentNumber, hireDate);
       }
+
+      System.out.println(employee.getEmployeeName());
 
       return employee;
     } finally {

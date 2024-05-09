@@ -12,6 +12,8 @@ public class PositionDao {
     PreparedStatement pstmt = null;
     ResultSet rs = null;
 
+    System.out.println("position code: " + code);
+
     try {
       pstmt = conn.prepareStatement("select * from position where position_code = ?");
       pstmt.setInt(1, code);
@@ -25,6 +27,8 @@ public class PositionDao {
 
         position = new Position(positionCode, positionName);
       }
+
+      System.out.println(position.getPositionName());
 
       return position;
     } finally {

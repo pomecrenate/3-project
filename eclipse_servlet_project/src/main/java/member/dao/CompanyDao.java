@@ -15,14 +15,16 @@ public class CompanyDao {
     PreparedStatement pstmt = null;
     ResultSet rs = null;
 
+    System.out.println("company code: " + code);
+
     try {
       pstmt = conn.prepareStatement("select * from company where company_code = ?");
       pstmt.setInt(1, code);
       rs = pstmt.executeQuery();
 
       Company company = null;
-      BusinessTypeDao businessTypeDao = null;
-      BusinessItemDao businessItemDao = null;
+      BusinessTypeDao businessTypeDao = new BusinessTypeDao();
+      BusinessItemDao businessItemDao = new BusinessItemDao();
 
       if (rs.next()) {
         int companyCode = rs.getInt("company_code");
@@ -31,7 +33,7 @@ public class CompanyDao {
         int businessItemCode = rs.getInt("business_item_code");
         BusinessItem businessItem = businessItemDao.selectByCode(conn, businessItemCode);
         String companyName = rs.getString("company_name");
-        String ceoName = rs.getString("companyName");
+        String ceoName = rs.getString("company_name");
         String businessNumber = rs.getString("ceo_name");
         String corporateNumber = rs.getString("corporate_number");
         LocalDate establishmentDate =
@@ -45,6 +47,8 @@ public class CompanyDao {
             businessNumber, corporateNumber, establishmentDate, website, address, phoneNumber,
             faxNumber);
       }
+
+      System.out.println(company.getCompanyName());
 
       return company;
     } finally {

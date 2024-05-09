@@ -12,6 +12,8 @@ public class DepartmentDao {
     PreparedStatement pstmt = null;
     ResultSet rs = null;
 
+    System.out.println("department code: " + code);
+
     try {
       pstmt = conn.prepareStatement("select * from department where department_code = ?");
       pstmt.setInt(1, code);
@@ -25,6 +27,8 @@ public class DepartmentDao {
 
         department = new Department(departmentCode, departmentName);
       }
+
+      System.out.println(department.getDepartmentName());
 
       return department;
     } finally {
