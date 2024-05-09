@@ -35,10 +35,10 @@ public class CompanyDao {
         String id = rs.getString("id");
         String password = rs.getString("password");
         LocalDate registerDate = 
-        		rs.getTimestamp("register_date").toLocalDateTime().toLocalDate();
+        	rs.getTimestamp("register_date").toLocalDateTime().toLocalDate();
         String companyName = rs.getString("company_name");
-        String ceoName = rs.getString("company_name");
-        String businessNumber = rs.getString("ceo_name");
+        String ceoName = rs.getString("ceo_name");
+        String businessNumber = rs.getString("business_number");
         String corporateNumber = rs.getString("corporate_number");
         LocalDate establishmentDate =
             rs.getTimestamp("establishment_date").toLocalDateTime().toLocalDate();
