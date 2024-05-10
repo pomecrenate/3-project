@@ -1,170 +1,201 @@
 package member.model;
+
 import java.time.LocalDate;
 
 public class Company {
 
-	  private int companyCode; // 会社コード
-	  private BusinessType businessType; // 業態コード
-	  private BusinessItem businessItem; // 種目コード
-	  private String id; // アイディー
-	  private String password; // パスワード
-	  private LocalDate registerDate; // 加入日
-	  private String companyName; // 社名
-	  private String ceoName; // 代表者名
-	  private String businessNumber; // 事業者番号
-	  private String corporateNumber; // 法人登録番号
-	  private LocalDate establishmentDate; // 設立日
-	  private String website; // ホームページ
-	  private String address; // 事業場の住所
-	  private String phoneNumber; // 電話番号
-	  private String faxNumber; // ファックス番号
-	
-	// 生成器
-    public Company() {
-		  super();
-    }
+  private int companyCode; // 会社コード
+  private BusinessType businessType; // 業態コード
+  private BusinessItem businessItem; // 種目コード
+  private String id; // アイディー
+  private String password; // パスワード
+  private LocalDate registerDate; // 加入日
+  private String companyName; // 社名
+  private String ceoName; // 代表者名
+  private String businessNumber; // 事業者番号
+  private String corporateNumber; // 法人登録番号
+  private LocalDate establishmentDate; // 設立日
+  private String website; // ホームページ
+  private String address; // 事業場の住所
+  private String phoneNumber; // 電話番号
+  private String faxNumber; // ファックス番号
 
-	public Company(int companyCode, BusinessType businessType, BusinessItem businessItem, String id, String password,
-			LocalDate registerDate, String companyName, String ceoName, String businessNumber, String corporateNumber,
-			LocalDate establishmentDate, String website, String address, String phoneNumber, String faxNumber) {
-		super();
-		this.companyCode = companyCode;
-		this.businessType = businessType;
-		this.businessItem = businessItem;
-		this.id = id;
-		this.password = password;
-		this.registerDate = registerDate;
-		this.companyName = companyName;
-		this.ceoName = ceoName;
-		this.businessNumber = businessNumber;
-		this.corporateNumber = corporateNumber;
-		this.establishmentDate = establishmentDate;
-		this.website = website;
-		this.address = address;
-		this.phoneNumber = phoneNumber;
-		this.faxNumber = faxNumber;
-	}
+  // 生成器
+  public Company() {
+    super();
+  }
 
-	// getter, setter
-	public int getCompanyCode() {
-		return companyCode;
-	}
+  public Company(int companyCode, BusinessType businessType, BusinessItem businessItem, String id,
+      String password, LocalDate registerDate, String companyName, String ceoName,
+      String businessNumber, String corporateNumber, LocalDate establishmentDate, String website,
+      String address, String phoneNumber, String faxNumber) {
+    super();
+    this.companyCode = companyCode;
+    this.businessType = businessType;
+    this.businessItem = businessItem;
+    this.id = id;
+    this.password = password;
+    this.registerDate = registerDate;
+    this.companyName = companyName;
+    this.ceoName = ceoName;
+    this.businessNumber = businessNumber;
+    this.corporateNumber = corporateNumber;
+    this.establishmentDate = establishmentDate;
+    this.website = website;
+    this.address = address;
+    this.phoneNumber = phoneNumber;
+    this.faxNumber = faxNumber;
+  }
 
-	public void setCompanyCode(int companyCode) {
-		this.companyCode = companyCode;
-	}
+  public Company(BusinessType businessType, BusinessItem businessItem, String id, String password,
+      LocalDate registerDate, String companyName, String ceoName, String businessNumber,
+      String corporateNumber, LocalDate establishmentDate, String website, String address,
+      String phoneNumber, String faxNumber) {
+    super();
+    this.businessType = businessType;
+    this.businessItem = businessItem;
+    this.id = id;
+    this.password = password;
+    this.registerDate = registerDate;
+    this.companyName = companyName;
+    this.ceoName = ceoName;
+    this.businessNumber = businessNumber;
+    this.corporateNumber = corporateNumber;
+    this.establishmentDate = establishmentDate;
+    this.website = website;
+    this.address = address;
+    this.phoneNumber = phoneNumber;
+    this.faxNumber = faxNumber;
+  }
 
-	public BusinessType getBusinessType() {
-		return businessType;
-	}
+  // getter, setter
+  public int getCompanyCode() {
+    return companyCode;
+  }
 
-	public void setBusinessType(BusinessType businessType) {
-		this.businessType = businessType;
-	}
+  public void setCompanyCode(int companyCode) {
+    this.companyCode = companyCode;
+  }
 
-	public BusinessItem getBusinessItem() {
-		return businessItem;
-	}
+  public BusinessType getBusinessType() {
+    return businessType;
+  }
 
-	public void setBusinessItem(BusinessItem businessItem) {
-		this.businessItem = businessItem;
-	}
+  public void setBusinessType(BusinessType businessType) {
+    this.businessType = businessType;
+  }
 
-	public String getId() {
-		return id;
-	}
+  public BusinessItem getBusinessItem() {
+    return businessItem;
+  }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+  public void setBusinessItem(BusinessItem businessItem) {
+    this.businessItem = businessItem;
+  }
 
-	public String getPassword() {
-		return password;
-	}
+  public String getId() {
+    return id;
+  }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+  public void setId(String id) {
+    this.id = id;
+  }
 
-	public LocalDate getRegisterDate() {
-		return registerDate;
-	}
+  public String getPassword() {
+    return password;
+  }
 
-	public void setRegisterDate(LocalDate registerDate) {
-		this.registerDate = registerDate;
-	}
+  public void setPassword(String password) {
+    this.password = password;
+  }
 
-	public String getCompanyName() {
-		return companyName;
-	}
+  public LocalDate getRegisterDate() {
+    return registerDate;
+  }
 
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
-	}
+  public void setRegisterDate(LocalDate registerDate) {
+    this.registerDate = registerDate;
+  }
 
-	public String getCeoName() {
-		return ceoName;
-	}
+  public String getCompanyName() {
+    return companyName;
+  }
 
-	public void setCeoName(String ceoName) {
-		this.ceoName = ceoName;
-	}
+  public void setCompanyName(String companyName) {
+    this.companyName = companyName;
+  }
 
-	public String getBusinessNumber() {
-		return businessNumber;
-	}
+  public String getCeoName() {
+    return ceoName;
+  }
 
-	public void setBusinessNumber(String businessNumber) {
-		this.businessNumber = businessNumber;
-	}
+  public void setCeoName(String ceoName) {
+    this.ceoName = ceoName;
+  }
 
-	public String getCorporateNumber() {
-		return corporateNumber;
-	}
+  public String getBusinessNumber() {
+    return businessNumber;
+  }
 
-	public void setCorporateNumber(String corporateNumber) {
-		this.corporateNumber = corporateNumber;
-	}
+  public void setBusinessNumber(String businessNumber) {
+    this.businessNumber = businessNumber;
+  }
 
-	public LocalDate getEstablishmentDate() {
-		return establishmentDate;
-	}
+  public String getCorporateNumber() {
+    return corporateNumber;
+  }
 
-	public void setEstablishmentDate(LocalDate establishmentDate) {
-		this.establishmentDate = establishmentDate;
-	}
+  public void setCorporateNumber(String corporateNumber) {
+    this.corporateNumber = corporateNumber;
+  }
 
-	public String getWebsite() {
-		return website;
-	}
+  public LocalDate getEstablishmentDate() {
+    return establishmentDate;
+  }
 
-	public void setWebsite(String website) {
-		this.website = website;
-	}
+  public void setEstablishmentDate(LocalDate establishmentDate) {
+    this.establishmentDate = establishmentDate;
+  }
 
-	public String getAddress() {
-		return address;
-	}
+  public String getWebsite() {
+    return website;
+  }
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
+  public void setWebsite(String website) {
+    this.website = website;
+  }
 
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
+  public String getAddress() {
+    return address;
+  }
 
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
+  public void setAddress(String address) {
+    this.address = address;
+  }
 
-	public String getFaxNumber() {
-		return faxNumber;
-	}
+  public String getPhoneNumber() {
+    return phoneNumber;
+  }
 
-	public void setFaxNumber(String faxNumber) {
-		this.faxNumber = faxNumber;
-	}
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
 
-	
+  public String getFaxNumber() {
+    return faxNumber;
+  }
+
+  public void setFaxNumber(String faxNumber) {
+    this.faxNumber = faxNumber;
+  }
+
+  // 기존 비밀번호와 일치하는지 확인
+  public boolean matchPassword(String password) {
+    return this.password.equals(password);
+  }
+
+  // 기존 비밀번호를 새로운 비밀번호로 변경
+  public void changePassword(String newPassword) {
+    this.password = newPassword;
+  }
 }

@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 import jdbc.JdbcUtil;
 import member.model.Position;
 
@@ -34,6 +36,24 @@ public class PositionDao {
     } finally {
       JdbcUtil.close(rs);
       JdbcUtil.close(pstmt);
+    }
+  }
+
+  public Map<Integer, String> selectAll(Connection conn) throws SQLException {
+    String sql = "SELECT * FROM position";
+
+    try (PreparedStatement pstmt = conn.prepareStatement(sql);
+        ResultSet rs = pstmt.executeQuery()) {
+
+      Map<Integer, String> positions = new HashMap<>();
+
+      while (rs.next()) {
+        int code = rs.getInt("position_code");
+        String name = rs.getString("position_name");
+        positions.put(code, name);
+      }
+
+      return positions;
     }
   }
 }

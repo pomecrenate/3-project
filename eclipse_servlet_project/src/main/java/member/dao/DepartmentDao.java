@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 import jdbc.JdbcUtil;
 import member.model.Department;
 
@@ -34,6 +36,24 @@ public class DepartmentDao {
     } finally {
       JdbcUtil.close(rs);
       JdbcUtil.close(pstmt);
+    }
+  }
+
+  public Map<Integer, String> selectAll(Connection conn) throws SQLException {
+    String sql = "SELECT * FROM department";
+
+    try (PreparedStatement pstmt = conn.prepareStatement(sql);
+        ResultSet rs = pstmt.executeQuery()) {
+
+      Map<Integer, String> departments = new HashMap<>();
+
+      while (rs.next()) {
+        int code = rs.getInt("department_code");
+        String name = rs.getString("department_name");
+        departments.put(code, name);
+      }
+
+      return departments;
     }
   }
 }

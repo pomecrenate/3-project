@@ -20,7 +20,7 @@ public class GetEmployeeService {
 
       return employee;
     } catch (SQLException e) {
-      throw new RuntimeException();
+      throw new RuntimeException(e);
     }
   }
 }
