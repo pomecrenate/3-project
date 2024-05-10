@@ -7,7 +7,7 @@ import jdbc.connection.ConnectionProvider;
 import member.dao.EmployeeDao;
 import member.model.Employee;
 
-public class ReadEmployeeService {
+public class GetEmployeeService {
   private EmployeeDao employeeDao = new EmployeeDao();
 
   public Employee get(int code) {

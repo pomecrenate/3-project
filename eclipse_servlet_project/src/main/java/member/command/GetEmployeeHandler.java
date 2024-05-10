@@ -4,12 +4,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import exception.EmployeeNotFoundException;
 import member.model.Employee;
-import member.service.ReadEmployeeService;
+import member.service.GetEmployeeService;
 import mvc.command.CommandHandler;
 
-public class ReadEmployeeHandler implements CommandHandler {
-  private static final String CONTENT_VIEW = "/WEB-INF/view/readEmployee.jsp";
-  private ReadEmployeeService readService = new ReadEmployeeService();
+public class GetEmployeeHandler implements CommandHandler {
+  private static final String CONTENT_VIEW = "/WEB-INF/view/getEmployee.jsp";
+  private GetEmployeeService readService = new GetEmployeeService();
 
   @Override
   public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
