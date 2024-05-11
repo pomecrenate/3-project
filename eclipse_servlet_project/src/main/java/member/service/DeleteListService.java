@@ -8,7 +8,7 @@ import jdbc.connection.ConnectionProvider;
 import member.dao.EmployeeDao; 
 import member.model.Employee; 
  
-public class RetirementService { 
+public class DeleteListService { 
  
     private static EmployeeDao employeeDao = new EmployeeDao(); 
  
@@ -20,11 +20,4 @@ public class RetirementService {
         } 
     } 
  
-    public void retireEmployee(int employeeCode) { 
-        try (Connection conn = ConnectionProvider.getConnection()) { 
-            employeeDao.deleteEmployee(conn, employeeCode); 
-        } catch (SQLException e) { 
-            throw new RuntimeException("Failed to retire employee", e); 
-        } 
-    } 
 } 

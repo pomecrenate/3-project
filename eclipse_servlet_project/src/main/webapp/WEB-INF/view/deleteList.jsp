@@ -253,7 +253,7 @@ $( document ).ready( function() {
 						</button>
 					</li>
 <li class="n04">
-    <button onclick="location.href='retireMent.do'" title="退職管理">
+    <button onclick="location.href='deleteList.do'" title="退職管理">
         <span><strong>退職管理</strong></span>
     </button>
 </li>
@@ -324,10 +324,10 @@ input[type=text]::-ms-clear {
 						</div></li>
 					<!--a:hover시엔 top값을 수정해서 사용-->
 
-					<li class="n05"><a href="retireMent.do"><span>退職管理</span></a>
+					<li class="n05"><a href="deleteList.do"><span>退職管理</span></a>
 						<div class='menu_2depth_01_2020' style="z-index: 9999;">
 							<ul class='menu_01'>
-								<li><a href="retireMent.do">社員 退職処理</a></li>
+								<li><a href="deleteList.do">社員 退職処理</a></li>
 							</ul>
 						</div>
 				</ul>
