@@ -63,7 +63,7 @@ CREATE TABLE employee (
     FOREIGN KEY (company_code) REFERENCES company(company_code),
     FOREIGN KEY (department_code) REFERENCES department(department_code),
     FOREIGN KEY (position_code) REFERENCES position(position_code)
-);
-
+); 
+ 
 -- 사원 코드 시퀀스
 CREATE SEQUENCE seq_employee;
