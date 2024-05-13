@@ -27,9 +27,10 @@
 	<filter-mapping>
 		<filter-name>LoginCheckFilter</filter-name>
 		<url-pattern>/changePassword.do</url-pattern>
-		<!-- <url-pattern>/article/write.do</url-pattern>
-		<url-pattern>/article/modify.do</url-pattern>
-		<url-pattern>/article/delete.do</url-pattern> -->
+		<url-pattern>/index.jsp</url-pattern>
+		<url-pattern>/deleteList.do</url-pattern>
+		<url-pattern>/deleteSuccess.do</url-pattern>
+	
 	</filter-mapping>
 
 	<listener>
