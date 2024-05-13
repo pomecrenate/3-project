@@ -42,7 +42,7 @@ public class Employee {
 		this.email = email; 
 	} 
  
-// getter, setter 
+	// ゲッター、セッター
 	public int getEmployeeCode() { 
 		return employeeCode; 
 	} 

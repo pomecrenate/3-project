@@ -15,103 +15,106 @@ import member.model.Employee;
 import member.model.Position;
 
 public class EmployeeDao {
-    private CompanyDao companyDao;
-    private DepartmentDao departmentDao;
-    private PositionDao positionDao;
+	private CompanyDao companyDao;
+	private DepartmentDao departmentDao;
+	private PositionDao positionDao;
 
-    public EmployeeDao() {
-        this.companyDao = new CompanyDao();
-        this.departmentDao = new DepartmentDao();
-        this.positionDao = new PositionDao();
-    }
+	// コンストラクタ
+	public EmployeeDao() {
+		this.companyDao = new CompanyDao();
+		this.departmentDao = new DepartmentDao();
+		this.positionDao = new PositionDao();
+	}
 
-    public Employee selectByCode(Connection conn, int code) throws SQLException {
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
+	// 従業員コードで検索して取得するメソッド
+	public Employee selectByCode(Connection conn, int code) throws SQLException {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 
-        try {
-            pstmt = conn.prepareStatement("select * from employee where employee_code = ?");
-            pstmt.setInt(1, code);
-            rs = pstmt.executeQuery();
+		try {
+			pstmt = conn.prepareStatement("select * from employee where employee_code = ?");
+			pstmt.setInt(1, code);
+			rs = pstmt.executeQuery();
 
-            Employee employee = null;
+			Employee employee = null;
 
-            if (rs.next()) {
-                int employeeCode = rs.getInt("employee_code");
-                int companyCode = rs.getInt("company_code");
-                Company company = companyDao.selectByCode(conn, companyCode);
-                int departmentCode = rs.getInt("department_code");
-                Department department = departmentDao.selectByCode(conn, departmentCode);
-                int positionCode = rs.getInt("position_code");
-                Position position = positionDao.selectByCode(conn, positionCode);
-                String employeeName = rs.getString("employee_name");
-                String employmentType = rs.getString("employment_type");
-                LocalDate hireDate = rs.getTimestamp("hire_date").toLocalDateTime().toLocalDate();
-                LocalDate leavingDate = rs.getTimestamp("leaving_date").toLocalDateTime().toLocalDate();
-                int birthNumber = rs.getInt("birth_number");
-                int residentNumber = rs.getInt("resident_number");
-                String address = rs.getString("address");
-                String phoneNumber = rs.getString("phone_number");
-                String email = rs.getString("email");
+			if (rs.next()) {
+				int employeeCode = rs.getInt("employee_code");
+				int companyCode = rs.getInt("company_code");
+				Company company = companyDao.selectByCode(conn, companyCode);
+				int departmentCode = rs.getInt("department_code");
+				Department department = departmentDao.selectByCode(conn, departmentCode);
+				int positionCode = rs.getInt("position_code");
+				Position position = positionDao.selectByCode(conn, positionCode);
+				String employeeName = rs.getString("employee_name");
+				String employmentType = rs.getString("employment_type");
+				LocalDate hireDate = rs.getTimestamp("hire_date").toLocalDateTime().toLocalDate();
+				LocalDate leavingDate = rs.getTimestamp("leaving_date").toLocalDateTime().toLocalDate();
+				int birthNumber = rs.getInt("birth_number");
+				int residentNumber = rs.getInt("resident_number");
+				String address = rs.getString("address");
+				String phoneNumber = rs.getString("phone_number");
+				String email = rs.getString("email");
 
-                employee = new Employee(employeeCode, company, department, position, employeeName,
-                        employmentType, hireDate, leavingDate, birthNumber, residentNumber,
-                        address, phoneNumber, email);
-            }
+				employee = new Employee(employeeCode, company, department, position, employeeName, employmentType,
+						hireDate, leavingDate, birthNumber, residentNumber, address, phoneNumber, email);
+			}
 
-            return employee;
-        } finally {
-            JdbcUtil.close(rs);
-            JdbcUtil.close(pstmt);
-        }
-    }
-    
-    public List<Employee> selectBasicInfo(Connection conn) throws SQLException {
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
-        List<Employee> employees = new ArrayList<>();
+			return employee;
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+	}
 
-        try {
-            pstmt = conn.prepareStatement("SELECT employee_code, employee_name, department_code, position_code, hire_date FROM employee");
-            rs = pstmt.executeQuery();
+	// 基本情報を取得するメソッド
+	public List<Employee> selectBasicInfo(Connection conn) throws SQLException {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<Employee> employees = new ArrayList<>();
 
-            while (rs.next()) {
-                int employeeCode = rs.getInt("employee_code");
-                String employeeName = rs.getString("employee_name");
-                int departmentCode = rs.getInt("department_code");
-                Department department = departmentDao.selectByCode(conn, departmentCode);
-                int positionCode = rs.getInt("position_code");
-                Position position = positionDao.selectByCode(conn, positionCode);
-                LocalDate hireDate = rs.getTimestamp("hire_date").toLocalDateTime().toLocalDate();
+		try {
+			pstmt = conn.prepareStatement(
+					"SELECT employee_code, employee_name, department_code, position_code, hire_date FROM employee");
+			rs = pstmt.executeQuery();
 
-                Employee employee = new Employee();
-                employee.setEmployeeCode(employeeCode);
-                employee.setEmployeeName(employeeName);
-                employee.setDepartment(department);
-                employee.setPosition(position);
-                employee.setHireDate(hireDate);
+			while (rs.next()) {
+				int employeeCode = rs.getInt("employee_code");
+				String employeeName = rs.getString("employee_name");
+				int departmentCode = rs.getInt("department_code");
+				Department department = departmentDao.selectByCode(conn, departmentCode);
+				int positionCode = rs.getInt("position_code");
+				Position position = positionDao.selectByCode(conn, positionCode);
+				LocalDate hireDate = rs.getTimestamp("hire_date").toLocalDateTime().toLocalDate();
 
-                employees.add(employee);
-            }
-        } finally {
-            JdbcUtil.close(rs);
-            JdbcUtil.close(pstmt);
-        }
+				Employee employee = new Employee();
+				employee.setEmployeeCode(employeeCode);
+				employee.setEmployeeName(employeeName);
+				employee.setDepartment(department);
+				employee.setPosition(position);
+				employee.setHireDate(hireDate);
 
-        return employees;
-    }
+				employees.add(employee);
+			}
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
 
+		return employees;
+	}
 
+	// 従業員を削除するメソッド
+	public void deleteEmployee(Connection conn, int code) throws SQLException {
+		PreparedStatement pstmt = null;
 
-    public void deleteEmployee(Connection conn, int code) throws SQLException {
-        PreparedStatement pstmt = null;
+		try {
+			pstmt = conn.prepareStatement("DELETE FROM employee WHERE employee_code = ?");
+			pstmt.setInt(1, code);
+			pstmt.executeUpdate();
+		} finally {
+			JdbcUtil.close(pstmt);
+		}
+	}
 
-        try {
-            pstmt = conn.prepareStatement("DELETE FROM employee WHERE employee_code = ?");
-            pstmt.setInt(1, code);
-            pstmt.executeUpdate();
-        } finally {
-            JdbcUtil.close(pstmt);
-        }
-    }
 }
