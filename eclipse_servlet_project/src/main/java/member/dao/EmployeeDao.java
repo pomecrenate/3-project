@@ -4,9 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import jdbc.JdbcUtil;
 import member.model.Company;
@@ -117,4 +121,44 @@ public class EmployeeDao {
 		}
 	}
 
+	  public void insert(Connection conn, Employee emp) throws SQLException {
+		    String sql = "INSERT INTO employee " +
+		                 "(employee_code, company_code, department_code, position_code, " +
+		                 "employee_name, employment_type, address, phone_number, email, " +
+		                 "birth_number, resident_number, hire_date) " +
+		                 "VALUES (seq_employee.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		    
+		    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+		      pstmt.setInt(1, emp.getCompany().getCompanyCode());
+		      pstmt.setInt(2, emp.getDepartment().getDepartmentCode());
+		      pstmt.setInt(3, emp.getPosition().getPositionCode());
+		      pstmt.setString(4, emp.getEmployeeName());
+		      pstmt.setString(5, emp.getEmploymentType());
+		      pstmt.setString(6, emp.getAddress());
+		      pstmt.setString(7, emp.getPhoneNumber());
+		      pstmt.setString(8, emp.getEmail());
+		      pstmt.setInt(9, emp.getBirthNumber());
+		      pstmt.setInt(10, emp.getResidentNumber());
+		      pstmt.setTimestamp(11, Timestamp.valueOf(emp.getHireDate().atStartOfDay()));
+		      
+		      pstmt.executeUpdate();
+		    }
+		  }
+	  
+	  public Map<String, Integer> employmentType(Connection conn) throws SQLException{
+		String sql =   "SELECT employment_type, COUNT(*) AS count FROM employee GROUP BY employment_type UNION ALL SELECT 'total' AS employment_type, COUNT(*) FROM employee";
+		  
+		try (PreparedStatement pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery()) {
+			Map<String, Integer> typeCount = new LinkedHashMap<>();
+			
+			while(rs.next()) {
+				String employmentType = rs.getString("employment_type");
+				int count = rs.getInt("count");
+				typeCount.put(employmentType, count);
+			}
+			return typeCount;
+		}
+		  
+	  }
 }

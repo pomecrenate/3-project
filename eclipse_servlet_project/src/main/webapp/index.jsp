@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
+
 <!DOCTYPE HTML>
 <html lang="UTF-8">
 <head>
@@ -142,6 +143,40 @@
 	z-index: 1;
 }
 </style>
+
+
+		<style>
+.tables-container {
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 50px;
+}
+
+.table {
+	border-collapse: collapse;
+	width: 45%;
+	margin-bottom: 30px;
+}
+
+.table caption {
+	font-weight: bold;
+	font-size: 1.2em;
+	margin-bottom: 10px;
+}
+
+.table th, .table td {
+	border: 1px solid #ddd;
+	padding: 8px;
+	text-align: center;
+}
+
+.table th {
+	background-color: #f2f2f2;
+}
+</style>
+
+
+
 		<script> 
 $( document ).ready( function() { 
   if($( '.jbMenu' ).length > 0){ 
@@ -256,6 +291,8 @@ input[type=text]::-ms-clear {
 </style>
 
 
+
+
 	<!-- 대메뉴 -->
 	<nav>
 		<div id="bottom_gnb2017">
@@ -319,6 +356,57 @@ input[type=text]::-ms-clear {
 </script>
 
 	<!-- 본인 틀 넣으면됨 -->
+	<div class="tables-container">
+		<table class="table">
+			<caption>회사 정보</caption>
+			<tr>
+				<th scope="col">상호</th>
+				<td>${ company.companyName }</td>
+				<th scope="col">대표자</th>
+				<td>${ company.ceoName }</td>
+			</tr>
+			<tr>
+				<th scope="col">사업자번호</th>
+				<td>${ company.businessNumber }</td>
+				<th scope="col">전화번호</th>
+				<td>${ company.phoneNumber }</td>
+			</tr>
+			<tr>
+				<th scope="col">팩스번호</th>
+				<td colspan="3">${ company.faxNumber }</td>
+			</tr>
+		</table>
+		<table class="table">
+			<caption>사원 현황</caption>
+			<tr>
+				<th scope="col">고용 형태</th>
+				<th scope="col">인원 수</th>
+			</tr>
+			<%-- <tr>
+				<td>정규직</td>
+				<td>${employee.employeeName}</td>
+			</tr>
+			<tr>
+				<td>계약직</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>임시직</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td>전체</td>
+				<td>11</td>
+			</tr> --%>
+			<!-- 대성  -->
+			<c:forEach var="typeCount" items="${typeCount}">
+				<tr>
+					<td>${typeCount.key}</td>
+					<td>${typeCount.value}</td>
+				</tr>
+			</c:forEach>
+		</table>
+	</div>
 
 	<script language='Javascript'> 
 </script>
