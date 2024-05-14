@@ -169,7 +169,7 @@ $( document ).ready( function() {
 		<div id="main_header">
 			<div class="header">
 				<ul class='logo p_t10'>
-				<span style="color: #FFFFFF;">${ authUser.name }株式会社、こんにちは.</span>
+					<span style="color: #FFFFFF;">${ authUser.name }株式会社、こんにちは.</span>
 				</ul>
 				<ul class='login_menu'>
 					<div class='direct'>
@@ -193,17 +193,17 @@ $( document ).ready( function() {
 			<div class="navi_2017">
 				<ul class="navi_L_2017">
 					<li class="n01">
-						<button onclick="location.href='getCompany.do'" home view 넣기"' title="ホ-ム">
+						<button onclick="location.href='" home view 넣기"' title="ホ-ム">
 							<span><strong>ホ-ム</strong></span>
 						</button>
 					</li>
 					<li class="n02">
-						<button onclick="location.href='register.do'" 사원등록 view 넣기"' title="社員登録">
+						<button onclick="location.href='" 사원등록 view 넣기"' title="社員登録">
 							<span><strong>社員登録</strong></span>
 						</button>
 					</li>
 					<li class="n03">
-						<button onclick="location.href='" 사원형황 view 넣기"' title="社員現況">
+						<button onclick="location.href='employeeList.do'" title="社員現況">
 							<span><strong>社員現況</strong></span>
 						</button>
 					</li>
@@ -263,24 +263,24 @@ input[type=text]::-ms-clear {
 				<ul class="">
 					<li class="n01"><span
 						style="font-weight: bold; color: #fff; cursor: pointer; font-size: 22px; padding: 15px 15px;"
-						onclick="location.href='register.do'" title="基本環境設定"><span
+						onclick="location.href='home view 넣기'" title="基本環境設定"><span
 							id="SK01"><strong>基本環境設定</strong></span></span>
 
 						<div class='menu_2depth_01_2020' style="z-index: 9999;">
 							<ul class='menu_01'
 								style="display: flex; flex-direction: column;">
-								<li><a href="getCompany.do">ユーザー情報</a></li>
-								<li><a href="register.do">社員登録</a></li>
+								<li><a href="/pzConfig/membersInfo.php">ユーザー情報</a></li>
+								<li><a href="/pzPersonnel/employeeIns.php">社員登録</a></li>
 							</ul>
 						</div>
 					<li class="n02"><span
 						style="font-weight: bold; color: #fff; cursor: pointer; font-size: 22px; padding: 15px 15px;"
-						onclick="location.href='home view 넣기'" title="人事管理"><span
+						onclick="location.href='employeeList.do'" title="人事管理"><span
 							id="SK02"><strong>人事管理</strong></span></span>
 						<div class='menu_2depth_01_2020' style="z-index: 9999;">
 							<ul class='menu_01'
 								style="display: flex; flex-direction: column;">
-								<li><a href="/pzPersonnel/employeeMnt.php">社員現況/管理</a></li>
+								<li><a href="employeeList.do">社員現況/管理</a></li>
 							</ul>
 						</div>
 					<li class="n03"><span
@@ -318,12 +318,13 @@ input[type=text]::-ms-clear {
 
 </script>
 
+	<!-- 본인 틀 넣으면됨 -->
+<!-- 추가 -->
 	<section>
 		<div id="main_container">
 			<div class='sub_titimg'>
 				<ul>
-					<li class='p_t5'><div align="center">退職対象社員を選択し、退職処理に伴う情報を入力することができます。
-							退職社員に分類して、全体の退職社員を見ることができます。</div></li>
+					<li class='p_t5'><div align="center">会社の社員修正機能です。修正する社員を選択してください。</div></li>
 				</ul>
 			</div>
 			<hr>
@@ -335,12 +336,13 @@ input[type=text]::-ms-clear {
 						<p class='caption'></p>
 						<ul>
 							<li class='w_50 tit'>番号</li>
-							<li class='w_102 tit'><strong>社員番号</strong></li>
-							<li class='w_100 tit'><strong>氏名</strong></li>
-							<li class='w_120 tit'><strong>部署</strong></li>
-							<li class='w_120 tit'><strong>役職</strong></li>
+							<li class='w_102 tit'>社員コード</li>
+							<li class='w_100 tit'><strong>部署</strong></li>
+							<li class='w_120 tit'><strong>職位</strong></li>
+							<li class='w_120 tit'><strong>社員名</strong></li>
+							<li class='w_120 tit'><strong>雇用形態</strong></li>
 							<li class='w_120 tit'><strong>入社日</strong></li>
-							<li class='w_120 tit'><strong>退職</strong></li>
+							<li class='w_120 tit'><strong>修整</strong></li>
 						</ul>
 						<div id="disContentList" class="disContentList"
 							style="width: 1200px;">
@@ -350,15 +352,16 @@ input[type=text]::-ms-clear {
 										onClick="$.fn.selUlEmployee(this);" class="anchor">
 										<li class='w_50 c'>${loop.index+1}</li>
 										<li class='w_102 c'>${employee.employeeCode}</li>
-										<li class='w_100 c'>${employee.employeeName}</li>
-										<li class='w_120 c'>${employee.department.departmentName}</li>
+										<li class='w_100 c'>${employee.department.departmentName}</li>
 										<li class='w_120 c'>${employee.position.positionName}</li>
+										<li class='w_120 c'>${employee.employeeName}</li>
+										<li class='w_120 c'>${employee.employmentType}</li>
 										<li class='w_120 c'>${employee.hireDate}</li>
 										<li class='w_120 c'>
-											<form action="delete.do" method="post">
+											<form action="modifyEmployee.do" method="get">
 												<input type="hidden" name="employeeCode"
 													value="${employee.employeeCode}">
-												<button type="submit" title="削除">退職</button>
+												<button type="submit" title="修整">修整</button>
 											</form>
 										</li>
 									</ul>
@@ -368,12 +371,18 @@ input[type=text]::-ms-clear {
 					</div>
 				</div>
 			</div>
-
-			<script language='Javascript'> 
+		</div>
+		<script language='Javascript'> 
 </script>
 
 
-			<hr class='hr_50'></hr>
+		<hr class='hr_50'></hr>
+	</section>
+	<script language='Javascript'> 
+</script>
+
+
+	<hr class='hr_50'></hr>
 	</section>
 
 	<!-- footer -->
@@ -387,4 +396,3 @@ input[type=text]::-ms-clear {
 
 </body>
 </html>
-

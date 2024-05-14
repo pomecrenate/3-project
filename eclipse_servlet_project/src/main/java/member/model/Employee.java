@@ -10,8 +10,7 @@ public class Employee {
 	private Position position; // 職位コード 
 	private String employeeName; // 社員名 
 	private String employmentType; // 雇用形態 
-	private LocalDate hireDate; // 入社日 
-	private LocalDate leavingDate; // 退社日 
+	private LocalDate hireDate; // 入社日
 	private int birthNumber; // 生年月日番號 
 	private int residentNumber; // 住民番號 
 	private String address; // 居所 
@@ -24,7 +23,7 @@ public class Employee {
 	} 
  
 	public Employee(int employeeCode, Company company, Department department, Position position, String employeeName, 
-			String employmentType, LocalDate hireDate, LocalDate leavingDate, int birthNumber, int residentNumber, 
+			String employmentType, LocalDate hireDate, int birthNumber, int residentNumber, 
 			String address, String phoneNumber, String email) { 
 		super(); 
 		this.employeeCode = employeeCode; 
@@ -33,14 +32,30 @@ public class Employee {
 		this.position = position; 
 		this.employeeName = employeeName; 
 		this.employmentType = employmentType; 
-		this.hireDate = hireDate; 
-		this.leavingDate = leavingDate; 
+		this.hireDate = hireDate;
 		this.birthNumber = birthNumber; 
 		this.residentNumber = residentNumber; 
 		this.address = address; 
 		this.phoneNumber = phoneNumber; 
 		this.email = email; 
 	} 
+  
+  	public Employee(Company company, Department department, Position position, String employeeName,
+			String employmentType, String address, String phoneNumber, String email, int birthNumber,
+			int residentNumber, LocalDate hireDate) {
+		super();
+		this.company = company;
+		this.department = department;
+		this.position = position;
+		this.employeeName = employeeName;
+		this.employmentType = employmentType;
+		this.address = address;
+		this.phoneNumber = phoneNumber;
+		this.email = email;
+		this.birthNumber = birthNumber;
+		this.residentNumber = residentNumber;
+		this.hireDate = hireDate;
+	}
  
 	// ゲッター、セッター
 	public int getEmployeeCode() { 
@@ -97,14 +112,6 @@ public class Employee {
  
 	public void setHireDate(LocalDate hireDate) { 
 		this.hireDate = hireDate; 
-	} 
- 
-	public LocalDate getLeavingDate() { 
-		return leavingDate; 
-	} 
- 
-	public void setLeavingDate(LocalDate leavingDate) { 
-		this.leavingDate = leavingDate; 
 	} 
  
 	public int getBirthNumber() { 

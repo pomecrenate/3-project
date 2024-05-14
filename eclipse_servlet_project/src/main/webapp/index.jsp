@@ -2,9 +2,13 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
+
 <!DOCTYPE HTML>
 <html lang="UTF-8">
+<!-- 부트스트랩 CSS 링크 -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <head>
+
 <title>退職処理 ＞ 社員退職管理</title>
 <meta charset="UTF-8" />
 <meta name="keywords" content="payzon, 인사관리, 급여관리" />
@@ -142,6 +146,71 @@
 	z-index: 1;
 }
 </style>
+
+
+<!-- 		<style>
+.tables-container {
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 50px;
+}
+
+.table {
+	border-collapse: collapse;
+	width: 45%;
+	margin-bottom: 30px;
+}
+
+.table caption {
+	font-weight: bold;
+	font-size: 1.2em;
+	margin-bottom: 10px;
+}
+
+.table th, .table td {
+	border: 1px solid #ddd;
+	padding: 8px;
+	text-align: center;
+}
+
+.table th {
+	background-color: #f2f2f2;
+}
+</style> -->
+
+ <style>
+        /* 테이블 헤더의 가로 너비 조절 */
+    /* 테이블 스타일 */
+.table th,
+.table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+/* 테이블 캡션 스타일 */
+.table caption {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+/* 첫 번째 열 스타일 */
+.first-col {
+    width: 30%;
+}
+
+/* 두 번째 열 스타일 */
+.second-col {
+    width: 20%;
+}
+
+/* 테이블 간격 조정 */
+.tables-container .table {
+    margin-bottom: 30px;
+}
+    </style>
+
 		<script> 
 $( document ).ready( function() { 
   if($( '.jbMenu' ).length > 0){ 
@@ -193,12 +262,12 @@ $( document ).ready( function() {
 			<div class="navi_2017">
 				<ul class="navi_L_2017">
 					<li class="n01">
-						<button onclick="location.href='" home view 넣기"' title="ホ-ム">
+						<button onclick="location.href='getCompany.do'" home view 넣기"' title="ホ-ム">
 							<span><strong>ホ-ム</strong></span>
 						</button>
 					</li>
 					<li class="n02">
-						<button onclick="location.href='" 사원등록 view 넣기"' title="社員登録">
+						<button onclick="location.href='register.do'" 사원등록 view 넣기"' title="社員登録">
 							<span><strong>社員登録</strong></span>
 						</button>
 					</li>
@@ -254,6 +323,8 @@ input[type=text]::-ms-clear {
 	display: none;
 }
 </style>
+
+
 
 
 	<!-- 대메뉴 -->
@@ -319,6 +390,56 @@ input[type=text]::-ms-clear {
 </script>
 
 	<!-- 본인 틀 넣으면됨 -->
+	<div class="container">
+    <div class="row">
+        <!-- 첫 번째 테이블 -->
+        <div class="col-md-6">
+                <strong>会社情報</strong><br><br><br>
+            <table class="table table-bordered">
+                <tr>
+                    <th scope="col">商号名</th>
+                    <td>${ company.companyName }</td>
+                    <th scope="col">代表者</th>
+                    <td>${ company.ceoName }</td>
+                </tr>
+                <tr>
+                    <th scope="col">事業者番号</th>
+                    <td>${ company.businessNumber }</td>
+                    <th scope="col">電話番号</th>
+                    <td>${ company.phoneNumber }</td>
+                </tr>
+                <tr>
+                    <th scope="col">FAX番号</th>
+                    <td colspan="3">${ company.faxNumber }</td>
+                </tr>
+            </table>
+              <tr>
+            <th colspan="4">
+                <button onclick="location.href='modifyCompany.do'" title="사원등록">
+                    <span><strong>会社修正</strong></span>
+                </button>
+            </th>
+        </tr>
+        </div>
+        <!-- 두 번째 테이블 -->
+        <div class="col-md-6">
+                <strong>社員現況</strong><br><br><br>
+            <table class="table table-bordered">
+                <tr>
+                    <th scope="col">雇用形態</th>
+                    <th scope="col">人数</th>
+                </tr>
+                <!-- forEach 루프를 사용하여 데이터 표시 -->
+                <c:forEach var="typeCount" items="${typeCount}">
+                    <tr>
+                        <td>${typeCount.key}</td>
+                        <td>${typeCount.value}</td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
+    </div>
+</div>
 
 	<script language='Javascript'> 
 </script>

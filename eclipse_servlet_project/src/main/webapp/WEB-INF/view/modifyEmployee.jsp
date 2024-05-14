@@ -169,7 +169,6 @@ $( document ).ready( function() {
 		<div id="main_header">
 			<div class="header">
 				<ul class='logo p_t10'>
-				<span style="color: #FFFFFF;">${ authUser.name }株式会社、こんにちは.</span>
 				</ul>
 				<ul class='login_menu'>
 					<div class='direct'>
@@ -193,17 +192,17 @@ $( document ).ready( function() {
 			<div class="navi_2017">
 				<ul class="navi_L_2017">
 					<li class="n01">
-						<button onclick="location.href='getCompany.do'" home view 넣기"' title="ホ-ム">
+						<button onclick="location.href='" home view 넣기"' title="ホ-ム">
 							<span><strong>ホ-ム</strong></span>
 						</button>
 					</li>
 					<li class="n02">
-						<button onclick="location.href='register.do'" 사원등록 view 넣기"' title="社員登録">
+						<button onclick="location.href='" 사원등록 view 넣기"' title="社員登録">
 							<span><strong>社員登録</strong></span>
 						</button>
 					</li>
 					<li class="n03">
-						<button onclick="location.href='" 사원형황 view 넣기"' title="社員現況">
+						<button onclick="location.href='employeeList.do'" title="社員現況">
 							<span><strong>社員現況</strong></span>
 						</button>
 					</li>
@@ -253,6 +252,53 @@ input[type=text]:-ms-clear {
 input[type=text]::-ms-clear {
 	display: none;
 }
+
+<!--
+수정 테이블 보여주기 -->body {
+	margin: 0;
+	font-family: Arial, sans-serif;
+}
+
+.container {
+	width: 80%;
+	margin: 0 auto;
+	padding-top: 50px;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 10px;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
+}
+
+th {
+	background-color: #f2f2f2;
+}
+
+input[type="text"] {
+	width: 100%;
+	padding: 8px;
+	box-sizing: border-box;
+}
+
+input[type="submit"] {
+	padding: 10px 20px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	float: right;
+}
+
+input[type="submit"]:hover {
+	background-color: #45a049;
+}
 </style>
 
 
@@ -263,14 +309,14 @@ input[type=text]::-ms-clear {
 				<ul class="">
 					<li class="n01"><span
 						style="font-weight: bold; color: #fff; cursor: pointer; font-size: 22px; padding: 15px 15px;"
-						onclick="location.href='register.do'" title="基本環境設定"><span
+						onclick="location.href='home view 넣기'" title="基本環境設定"><span
 							id="SK01"><strong>基本環境設定</strong></span></span>
 
 						<div class='menu_2depth_01_2020' style="z-index: 9999;">
 							<ul class='menu_01'
 								style="display: flex; flex-direction: column;">
-								<li><a href="getCompany.do">ユーザー情報</a></li>
-								<li><a href="register.do">社員登録</a></li>
+								<li><a href="/pzConfig/membersInfo.php">ユーザー情報</a></li>
+								<li><a href="/pzPersonnel/employeeIns.php">社員登録</a></li>
 							</ul>
 						</div>
 					<li class="n02"><span
@@ -312,79 +358,223 @@ input[type=text]::-ms-clear {
 }
 </style>
 
+
 	<script type="text/javascript">
- 
- 
-
 </script>
+	<style>
+form {
+	background-color: #ffffff;
+	border-radius: 8px;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	width: 400px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
-	<section>
-		<div id="main_container">
-			<div class='sub_titimg'>
-				<ul>
-					<li class='p_t5'><div align="center">退職対象社員を選択し、退職処理に伴う情報を入力することができます。
-							退職社員に分類して、全体の退職社員を見ることができます。</div></li>
-				</ul>
+p {
+	margin-bottom: 15px;
+}
+
+input[type="text"], input[type="password"], input[type="submit"] {
+	width: calc(100% - 22px); /* 너비 조정 */
+	padding: 10px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+input[type="submit"] {
+	background-color: #007bff;
+	color: white;
+	cursor: pointer;
+}
+
+input[type="submit"]:hover {
+	background-color: #0056b3;
+}
+
+select {
+	width: 100%;
+	padding: 10px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+.error {
+	color: red;
+}
+</style>
+	<style>
+.form-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.form-container .left-column, .form-container .right-column {
+	width: 45%; /* 좌우 여백을 주기 위해 45%로 설정합니다. */
+}
+</style>
+<body>
+	<h2>Employee Information</h2>
+	<form action="modifyEmployee.do" method="post">
+		<div class="form-container">
+			<div class="left-column">
+				<p>
+					部署コード : <br> <select name="departmentCode" required>
+						<option value="0" selected disabled hidden>--部署--</option>
+						<c:forEach var="department" items="${departmentCodes}">
+							<option value="${department.key}"
+								${department.key == param.departmentCode ? 'selected' : '' }>
+								${department.value}</option>
+						</c:forEach>
+					</select>
+					<c:if test="${errors.departmentCode}">部署を選択してください。</c:if>
+					선택된 값 : <span id="selectedDepartment"></span>
+				</p>
+				<p>
+					職位コード : <br> <select name="positionCode" required>
+						<option value="0" selected disabled hidden>--職位--</option>
+						<c:forEach var="position" items="${positionCodes}">
+							<option value="${position.key}"
+								${position.key == param.positionCode ? 'selected' : '' }>
+								${position.value}</option>
+						</c:forEach>
+					</select>
+					<c:if test="${errors.positionCode}">職位を選択してください。</c:if>
+					선택된 값 : <span id="selectedPosition"></span>
+				</p>
+				<p>
+					社員名 : <br> <input type="text" name="employeeName" value="${ employee.employeeName }">
+					<c:if test="${errors.employeeName}">
+						<span class="error">社員名を入力してください。</span>
+					</c:if>
+					<br>
+				</p>
+				<br>
+				<p>
+					雇用形態 : <br> 
+						<select name="employmentType" required>
+							    <option value="0" selected disabled hidden>--雇用形態--</option>
+								<option value="正社員">正社員</option>
+								<option value="契約職">契約職</option>
+								<option value="臨時職">臨時職</option>
+								<option value="派遣職">派遣職</option>
+								<option value="委嘱職">委嘱職</option>
+								<option value="日雇い">日雇い</option>
+					</select>
+					 <input type="hidden" id="selectedValueInput" name="selectedValue">
+								선택된 값 :<span id="selectedValue"></span>
+					
+					<%-- <select name="employmentTypeCode">
+						<option value="0">--雇用形態--</option>
+						<c:forEach var="employmentType" items="${positionCodes}">
+							<option value="${employmentType.key}"
+								${employmentType.key == param.employmentType ? 'selected' : '' }>
+								${employmentType.value}</option>
+						</c:forEach>
+					</select> --%>
+				</p>
+				<br>
 			</div>
-			<hr>
+			<div class="right-column">
+				<p>
+					居所 : <br> <input type="text" name="address" value="${ employee.address }">
+					<c:if test="${errors.address}">
+						<span class="error">居所を入力してください。</span>
+					</c:if>
+					<br>
+				</p>
+				<br>
+				<p>
+					電話番號 : <br> <input type="text" name="phoneNumber" value="${ employee.phoneNumber }" width="1000">
+					<c:if test="${errors.phoneNumber}">
+						<span class="error">電話番號を入力してください。</span>
+					</c:if>
+					<br>
+				</p>
+				<br>
+				<p>
+					メール : <br> <input type="text" name="email" value="${ employee.email }">
+					<c:if test="${errors.email}">
+						<span class="error">メールを入力してください。</span>
+					</c:if>
+					<br>
+				</p>
+				<br>
+				<p>
+					入社日 : <br> <input type="date" name="hireDate" value="${ employee.hireDate }">
+					<c:if test="${errors.hireDate}">
+						<span class="error">入社日を入力してください。</span>
+					</c:if>
+					<br>
+				</p>
+				<br>
 
-			<div class='main_titimg wp_100'>
-
-				<div class='e_total'>
-					<div id='table1'>
-						<p class='caption'></p>
-						<ul>
-							<li class='w_50 tit'>番号</li>
-							<li class='w_102 tit'><strong>社員番号</strong></li>
-							<li class='w_100 tit'><strong>氏名</strong></li>
-							<li class='w_120 tit'><strong>部署</strong></li>
-							<li class='w_120 tit'><strong>役職</strong></li>
-							<li class='w_120 tit'><strong>入社日</strong></li>
-							<li class='w_120 tit'><strong>退職</strong></li>
-						</ul>
-						<div id="disContentList" class="disContentList"
-							style="width: 1200px;">
-							<div id="table_dil_data">
-								<c:forEach var="employee" items="${employees}" varStatus="loop">
-									<ul id="EM${employee.employeeCode}"
-										onClick="$.fn.selUlEmployee(this);" class="anchor">
-										<li class='w_50 c'>${loop.index+1}</li>
-										<li class='w_102 c'>${employee.employeeCode}</li>
-										<li class='w_100 c'>${employee.employeeName}</li>
-										<li class='w_120 c'>${employee.department.departmentName}</li>
-										<li class='w_120 c'>${employee.position.positionName}</li>
-										<li class='w_120 c'>${employee.hireDate}</li>
-										<li class='w_120 c'>
-											<form action="delete.do" method="post">
-												<input type="hidden" name="employeeCode"
-													value="${employee.employeeCode}">
-												<button type="submit" title="削除">退職</button>
-											</form>
-										</li>
-									</ul>
-								</c:forEach>
-							</div>
-						</div>
-					</div>
-				</div>
 			</div>
-
-			<script language='Javascript'> 
-</script>
-
-
-			<hr class='hr_50'></hr>
-	</section>
-
-	<!-- footer -->
-	<footer>
-		<div class="jbMenu" style="text-align: left; color: #FFFFFF;">
-			<div align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3チームプロジェクト</div>
-			<a href="/pzServiceGuide/php/inLogoutProc.php?ref=ExZon"><span
-				style="color: #FFFFFF;"></span></a>
 		</div>
-	</footer>
+		<input type="hidden" name="employeeCode"
+			value="${ param.employeeCode }">
+		<input type="submit" value="修整">
+	</form>
+	<br>
+
+</body>
+<script>
+    // 페이지가 로드될 때 실행되는 함수
+    window.onload = function() {
+        // 드롭다운 메뉴에서 선택된 값이 변경될 때마다 실행되는 함수
+        document.getElementsByName("departmentCode")[0].onchange = function() {
+            // 선택된 옵션의 인덱스(index)를 가져옴
+            var selectedIndex = this.selectedIndex;
+            // 선택된 옵션의 텍스트를 가져옴
+            var selectedText = this.options[selectedIndex].text;
+            // 선택된 값을 표시하는 span 요소를 가져와서 선택된 텍스트로 업데이트
+            console.log("Selected department:", selectedText);
+            document.getElementById("selectedDepartment").innerText = selectedText;
+        };
+      	 document.getElementsByName("positionCode")[0].onchange = function() {
+             // 선택된 옵션의 인덱스(index)를 가져옴
+             var selectedIndex = this.selectedIndex;
+             // 선택된 옵션의 텍스트를 가져옴
+             var selectedText = this.options[selectedIndex].text;
+             // 선택된 값을 표시하는 span 요소를 가져와서 선택된 텍스트로 업데이트
+              console.log("Selected position:", selectedText);
+             document.getElementById("selectedPosition").innerText = selectedText;
+         };
+      	 document.getElementsByName("selectedEmploymentTypeCode")[0].onchange = function() {
+             // 선택된 옵션의 인덱스(index)를 가져옴
+             var selectedIndex = this.selectedIndex;
+             // 선택된 옵션의 텍스트를 가져옴
+             var selectedText = this.options[selectedIndex].text;
+             // 선택된 값을 표시하는 span 요소를 가져와서 선택된 텍스트로 업데이트
+              console.log("Selected employmentTypeCode:", selectedText);
+             document.getElementById("selectedEmploymentTypeCode").innerText = selectedText;
+         };
+    };
+    
+    function saveSelectedValue() {
+        var selectElement = document.getElementById("employmentType");
+        var selectedValue = selectElement.options[selectElement.selectedIndex].text;
+        document.getElementById("selectedValueInput").value = selectedValue;
+    }
+</script>
+
+
+<!-- footer -->
+<footer>
+	<div class="jbMenu" style="text-align: left; color: #FFFFFF;">
+		<div align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3チームプロジェクト</div>
+		<a href="/pzServiceGuide/php/inLogoutProc.php?ref=ExZon"><span
+			style="color: #FFFFFF;"></span></a>
+	</div>
+</footer>
 
 </body>
 </html>
-
