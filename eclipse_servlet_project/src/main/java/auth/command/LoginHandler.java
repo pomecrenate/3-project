@@ -56,7 +56,7 @@ public class LoginHandler implements CommandHandler {
     try { // 로그인 성공하면 홈 페이지로 이동
       User user = loginService.login(userId, password);
       request.getSession().setAttribute("authUser", user);
-      response.sendRedirect(request.getContextPath() + "/index.jsp");
+      response.sendRedirect(request.getContextPath() + "/getCompany.do");
       return null;
     } catch (LoginFailException e) { // 아이디가 중복되면 에러 발생 및 회원가입 페이지로 이동
       errors.put("idOrPasswordNotMatch", Boolean.TRUE);

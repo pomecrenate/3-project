@@ -9,8 +9,8 @@ import member.service.GetEmployeeService;
 import mvc.command.CommandHandler; 
  
 public class GetEmployeeHandler implements CommandHandler { 
-  private static final String CONTENT_VIEW = "/WEB-INF/view/readEmployee.jsp"; 
-  private GetEmployeeService readService = new GetEmployeeService(); 
+  private static final String CONTENT_VIEW = "/index.jsp";
+  private GetEmployeeService getEmployeeService = new GetEmployeeService(); 
  
   @Override 
   public String process(HttpServletRequest request, HttpServletResponse response) throws Exception { 
@@ -18,7 +18,7 @@ public class GetEmployeeHandler implements CommandHandler {
     int code = Integer.parseInt(codeValue); 
  
     try { 
-      Employee employee = readService.get(code); 
+      Employee employee = getEmployeeService.get(code); 
       request.setAttribute("employee", employee); 
  
       return CONTENT_VIEW; 

@@ -39,6 +39,23 @@ public class Employee {
 		this.phoneNumber = phoneNumber; 
 		this.email = email; 
 	} 
+  
+  	public Employee(Company company, Department department, Position position, String employeeName,
+			String employmentType, String address, String phoneNumber, String email, int birthNumber,
+			int residentNumber, LocalDate hireDate) {
+		super();
+		this.company = company;
+		this.department = department;
+		this.position = position;
+		this.employeeName = employeeName;
+		this.employmentType = employmentType;
+		this.address = address;
+		this.phoneNumber = phoneNumber;
+		this.email = email;
+		this.birthNumber = birthNumber;
+		this.residentNumber = residentNumber;
+		this.hireDate = hireDate;
+	}
  
 	// ゲッター、セッター
 	public int getEmployeeCode() { 
