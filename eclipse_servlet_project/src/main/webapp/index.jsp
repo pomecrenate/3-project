@@ -272,7 +272,7 @@ $( document ).ready( function() {
 						</button>
 					</li>
 					<li class="n03">
-						<button onclick="location.href='" 사원형황 view 넣기"' title="社員現況">
+						<button onclick="location.href='employeeList.do'" title="社員現況">
 							<span><strong>社員現況</strong></span>
 						</button>
 					</li>
