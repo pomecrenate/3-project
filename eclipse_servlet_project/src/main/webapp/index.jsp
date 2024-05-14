@@ -413,6 +413,13 @@ input[type=text]::-ms-clear {
                     <td colspan="3">${ company.faxNumber }</td>
                 </tr>
             </table>
+              <tr>
+            <th colspan="4">
+                <button onclick="location.href='modifyCompany.do'" title="사원등록">
+                    <span><strong>会社修正</strong></span>
+                </button>
+            </th>
+        </tr>
         </div>
         <!-- 두 번째 테이블 -->
         <div class="col-md-6">
