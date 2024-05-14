@@ -192,7 +192,7 @@ $( document ).ready( function() {
 			<div class="navi_2017">
 				<ul class="navi_L_2017">
 					<li class="n01">
-						<button onclick="location.href='index.jsp'" title="ホ-ム">
+						<button onclick="location.href='getCompany.do'" title="ホ-ム">
 							<span><strong>ホ-ム</strong></span>
 						</button>
 					</li>
@@ -309,24 +309,24 @@ input[type="submit"]:hover {
 				<ul class="">
 					<li class="n01"><span
 						style="font-weight: bold; color: #fff; cursor: pointer; font-size: 22px; padding: 15px 15px;"
-						onclick="location.href='home view 넣기'" title="基本環境設定"><span
+						onclick="location.href='register.do'" title="基本環境設定"><span
 							id="SK01"><strong>基本環境設定</strong></span></span>
 
 						<div class='menu_2depth_01_2020' style="z-index: 9999;">
 							<ul class='menu_01'
 								style="display: flex; flex-direction: column;">
-								<li><a href="/pzConfig/membersInfo.php">ユーザー情報</a></li>
-								<li><a href="/pzPersonnel/employeeIns.php">社員登録</a></li>
+								<li><a href="getCompany.do">ユーザー情報</a></li>
+								<li><a href="register.do">社員登録</a></li>
 							</ul>
 						</div>
 					<li class="n02"><span
 						style="font-weight: bold; color: #fff; cursor: pointer; font-size: 22px; padding: 15px 15px;"
-						onclick="location.href='home view 넣기'" title="人事管理"><span
+						onclick="location.href='employeeList.do'" title="人事管理"><span
 							id="SK02"><strong>人事管理</strong></span></span>
 						<div class='menu_2depth_01_2020' style="z-index: 9999;">
 							<ul class='menu_01'
 								style="display: flex; flex-direction: column;">
-								<li><a href="/pzPersonnel/employeeMnt.php">社員現況/管理</a></li>
+								<li><a href="employeeList.do">社員現況/管理</a></li>
 							</ul>
 						</div>
 					<li class="n03"><span
