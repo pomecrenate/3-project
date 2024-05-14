@@ -9,7 +9,7 @@ import member.service.GetEmployeeService;
 import mvc.command.CommandHandler; 
  
 public class GetEmployeeHandler implements CommandHandler { 
-  private static final String CONTENT_VIEW = "/index.jsp";
+  private static final String CONTENT_VIEW = "/getCompany.do";
   private GetEmployeeService getEmployeeService = new GetEmployeeService(); 
  
   @Override 

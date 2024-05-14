@@ -31,7 +31,7 @@ import mvc.command.CommandHandler;
 //ModifyCompanyService, GetCompanyService 一緒に使用
 public class ModifyCompanyHandler implements CommandHandler {
 
-	private static final String FORM_VIEW = "/WEB-INF/view/modifyCompany.jsp";
+	private static final String FORM_VIEW = "/modifyCompany.do";
 	private ModifyCompanyService modifyCompanyService = new ModifyCompanyService();
 	private GetCompanyService getCompanyService = new GetCompanyService();
 	private GetBusinessTypeService getBusinessTypeService = new GetBusinessTypeService();

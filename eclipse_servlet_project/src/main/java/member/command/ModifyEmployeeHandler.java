@@ -31,7 +31,7 @@ import mvc.command.CommandHandler;
 public class ModifyEmployeeHandler implements CommandHandler {
 
 	private static final String FORM_VIEW = "/WEB-INF/view/modifyEmployee.jsp";
-	private static final String SUCCESS_VIEW = "/WEB-INF/view/employeeList.jsp";
+	private static final String SUCCESS_VIEW = "/employeeList.do";
 	private GetEmployeeService getEmployeeService = new GetEmployeeService();
 	private ModifyEmployeeService modifyEmployeeService = new ModifyEmployeeService();
 	private GetCompanyService getCompanyService = new GetCompanyService();
