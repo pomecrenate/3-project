@@ -30,7 +30,7 @@
 		<url-pattern>/index.jsp</url-pattern>
 		<url-pattern>/deleteList.do</url-pattern>
 		<url-pattern>/deleteSuccess.do</url-pattern>
-	  <url-pattern>/modifyEmployee.do</url-pattern>
+     	<url-pattern>/modifyEmployee.do</url-pattern>
 		<url-pattern>/modifyCompany.do</url-pattern>
 		<url-pattern>/employeeList.do</url-pattern>
 		<url-pattern>/companyList.do</url-pattern>

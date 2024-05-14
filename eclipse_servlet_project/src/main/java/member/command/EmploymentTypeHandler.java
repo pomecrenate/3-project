@@ -13,7 +13,7 @@ import member.service.GetCompanyService;
 import mvc.command.CommandHandler;
 
 public class EmploymentTypeHandler implements CommandHandler {
-	private static final String CONTENT_VIEW = "/index.jsp";
+	private static final String CONTENT_VIEW = "/getCompany.do";
 	private GetCompanyService getCompanyService = new GetCompanyService();
 	private EmploymentTypeService employmentTypeService = new EmploymentTypeService();
 	
