@@ -146,7 +146,7 @@ public class EmployeeDao {
 		  }
 	  
 	  public Map<String, Integer> employmentType(Connection conn) throws SQLException{
-		String sql =   "SELECT employment_type, COUNT(*) AS count FROM employee GROUP BY employment_type UNION ALL SELECT 'total' AS employment_type, COUNT(*) FROM employee";
+		String sql =   "SELECT employment_type, COUNT(*) AS count FROM employee GROUP BY employment_type UNION ALL SELECT '全体' AS employment_type, COUNT(*) FROM employee";
 		  
 		try (PreparedStatement pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery()) {

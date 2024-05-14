@@ -60,56 +60,56 @@
 <h2>사원 등록</h2>
 <form action="register.do" method="post">
     
-    <label for="departmentCode">부서 코드:</label>
+    <label for="departmentCode">部署</label>
     <select name="departmentCode" required>
-        <option value="0">--부서 코드--</option>
+        <option value="0">--部署--</option>
         <c:forEach var="department" items="${departments}">
             <option value="${department.key}" ${department.key == param.departmentCode ? 'selected' : ''}>${department.value}</option>
         </c:forEach>
     </select>
     
-    <label for="positionCode">직위 코드:</label>
+    <label for="positionCode">職位:</label>
     <select name="positionCode" required>
-        <option value="0">--직위 코드--</option>
+        <option value="0">--職位--</option>
         <c:forEach var="position" items="${positions}">
             <option value="${position.key}" ${position.key == param.positionCode ? 'selected' : ''}>${position.value}</option>
         </c:forEach>
     </select>
     
-    <label for="employeeName">이름:</label>
+    <label for="employeeName">名前:</label>
     <input type="text" id="employeeName" name="employeeName" required>
     
-   <label for="employmentType">고용 형태:</label>
+   <label for="employmentType">雇用形態:</label>
 <select name="employmentType" required>
-    <option value="0">--고용 형태--</option>
-    <option value="정규직">정규직</option>
-    <option value="계약직">계약직</option>
-    <option value="임시직">임시직</option>
-    <option value="파견직">파견직</option>
-    <option value="위촉직">위촉직</option>
-    <option value="일용직">일용직</option>
+    <option value="0">--雇用形態--</option>
+    <option value="正社員">正社員</option>
+    <option value="契約職">契約職</option>
+    <option value="臨時職">臨時職</option>
+    <option value="派遣職">派遣職</option>
+    <option value="委嘱職">委嘱職</option>
+    <option value="日雇い">日雇い</option>
 </select>
 
     
-    <label for="address">주소:</label>
+    <label for="address">住所:</label>
     <input type="text" id="address" name="address" required>
     
-    <label for="phoneNumber">전화번호:</label>
+    <label for="phoneNumber">電話番号:</label>
     <input type="text" id="phoneNumber" name="phoneNumber" required>
     
-    <label for="email">이메일:</label>
+    <label for="email">Eメール:</label>
     <input type="text" id="email" name="email" required>
     
-    <label for="birthNumber">생년월일:</label>
+    <label for="birthNumber">生年月日:</label>
     <input type="text" id="birthNumber" name="birthNumber" required>
     
-    <label for="residentNumber">주민번호:</label>
+    <label for="residentNumber">住民番号:</label>
     <input type="text" id="residentNumber" name="residentNumber" required>
     
-    <label for="hireDate">입사일:</label>
+    <label for="hireDate">入社日:</label>
     <input type="date" id="hireDate" name="hireDate" required>
     
-    <input type="submit" value="등록">
+    <input type="submit" value="登録">
 </form>
 
 </body>

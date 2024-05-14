@@ -1,3 +1,4 @@
+<%@page import="auth.service.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -46,8 +47,8 @@
 </head>
 <body>
 <div class="container">
-    <h1>코스모 내정이 확정되었습니다. 축하합니다!</h1>
-    <a href="register.do">다른 사원 등록하기</a>
+    <h1>社員登録が完了しました!</h1>
+     <a href="getCompany.do">メインページ</a>
 </div>
 </body>
 </html>
