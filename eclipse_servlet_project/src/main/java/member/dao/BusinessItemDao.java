@@ -30,8 +30,6 @@ public class BusinessItemDao {
         businessItem = new BusinessItem(businessItemCode, businessItemName);
       }
 
-      System.out.println(businessItem.getBusinessItemName());
-
       return businessItem;
     } finally {
       JdbcUtil.close(rs);

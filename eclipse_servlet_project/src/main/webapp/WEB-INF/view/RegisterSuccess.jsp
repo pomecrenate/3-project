@@ -1,4 +1,4 @@
-<%@page import="auth.service.User"%>
+<%@page import="auth.model.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>

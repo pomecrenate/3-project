@@ -30,8 +30,6 @@ public class BusinessTypeDao {
         businessType = new BusinessType(businessTypeCode, businessTypeName);
       }
 
-      System.out.println(businessType.getBusinessTypeName());
-
       return businessType;
     } finally {
       JdbcUtil.close(rs);

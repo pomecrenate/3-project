@@ -1,4 +1,4 @@
-package auth.service;
+package auth.model;
 
 public class User {
   private String id;

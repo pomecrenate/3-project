@@ -203,7 +203,7 @@ $( document ).ready( function() {
 						</button>
 					</li>
 					<li class="n03">
-						<button onclick="location.href='" 사원형황 view 넣기"' title="社員現況">
+						<button onclick="location.href='employeeList.do'" title="社員現況">
 							<span><strong>社員現況</strong></span>
 						</button>
 					</li>
@@ -275,12 +275,12 @@ input[type=text]::-ms-clear {
 						</div>
 					<li class="n02"><span
 						style="font-weight: bold; color: #fff; cursor: pointer; font-size: 22px; padding: 15px 15px;"
-						onclick="location.href='home view 넣기'" title="人事管理"><span
+						onclick="location.href='employeeList.do'" title="人事管理"><span
 							id="SK02"><strong>人事管理</strong></span></span>
 						<div class='menu_2depth_01_2020' style="z-index: 9999;">
 							<ul class='menu_01'
 								style="display: flex; flex-direction: column;">
-								<li><a href="/pzPersonnel/employeeMnt.php">社員現況/管理</a></li>
+								<li><a href="employeeList.do">社員現況/管理</a></li>
 							</ul>
 						</div>
 					<li class="n03"><span

@@ -7,7 +7,7 @@ import java.util.List;
 import jdbc.connection.ConnectionProvider;
 import member.dao.EmployeeDao;
 import member.model.Employee;
-
+// 修正機能作業時に社員の情報を取得してリストに保存
 public class ModifyListService {
 	
 	private static EmployeeDao employeeDao = new EmployeeDao();

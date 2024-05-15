@@ -30,8 +30,6 @@ public class DepartmentDao {
         department = new Department(departmentCode, departmentName);
       }
 
-      System.out.println(department.getDepartmentName());
-
       return department;
     } finally {
       JdbcUtil.close(rs);

@@ -3,7 +3,7 @@ package member.command;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import auth.service.User;
+import auth.model.User;
 import exception.CompanyNotFoundException;
 import member.model.Company;
 import member.service.EmploymentTypeService;
@@ -24,7 +24,9 @@ public class GetCompanyHandler implements CommandHandler {
       Company company = getCompanyService.get(id);
       request.setAttribute("company", company);
 
-      Map<String, Integer> typeCount = employmentTypeService.get();
+      int companyCode = company.getCompanyCode();
+
+      Map<String, Integer> typeCount = employmentTypeService.get(companyCode);
       request.setAttribute("typeCount", typeCount);
 
       return CONTENT_VIEW;
