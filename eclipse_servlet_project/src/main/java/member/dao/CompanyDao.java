@@ -12,6 +12,8 @@ import member.model.BusinessType;
 import member.model.Company;
 
 public class CompanyDao {
+  // 회사 코드로 회사 정보를 조회하는 메서드
+  // 会社コードで会社情報を照会するメソッド
   public Company selectByCode(Connection conn, int code) throws SQLException {
     PreparedStatement pstmt = null;
     ResultSet rs = null;
@@ -19,7 +21,7 @@ public class CompanyDao {
     System.out.println("company code: " + code);
 
     try {
-      pstmt = conn.prepareStatement("select * from company where company_code = ?");
+      pstmt = conn.prepareStatement("SELECT * FROM company WHERE company_code = ?");
       pstmt.setInt(1, code);
       rs = pstmt.executeQuery();
 
@@ -27,6 +29,8 @@ public class CompanyDao {
       BusinessTypeDao businessTypeDao = new BusinessTypeDao();
       BusinessItemDao businessItemDao = new BusinessItemDao();
 
+      // ResultSet에서 결과를 추출하여 Company 객체 생성
+      // ResultSetから結果を抽出して当社オブジェクトを作成
       if (rs.next()) {
         int companyCode = rs.getInt("company_code");
         int businessTypeCode = rs.getInt("business_type_code");
@@ -52,8 +56,8 @@ public class CompanyDao {
             address, phoneNumber, faxNumber);
       }
 
-      System.out.println(company.getCompanyName());
-
+      // 생성된 Company 객체 반환
+      // 生成された当社オブジェクトの返却
       return company;
     } finally {
       JdbcUtil.close(rs);
@@ -61,6 +65,8 @@ public class CompanyDao {
     }
   }
 
+  // 아이디로 회사 정보를 조회하는 메서드
+  // IDで会社情報を照会するメソッド
   public Company selectById(Connection conn, String userId) throws SQLException {
     PreparedStatement pstmt = null;
     ResultSet rs = null;
@@ -68,7 +74,7 @@ public class CompanyDao {
     System.out.println("company id: " + userId);
 
     try {
-      pstmt = conn.prepareStatement("select * from company where id = ?");
+      pstmt = conn.prepareStatement("SELECT * FROM company WHERE id = ?");
       pstmt.setString(1, userId);
       rs = pstmt.executeQuery();
 
@@ -76,6 +82,8 @@ public class CompanyDao {
       BusinessTypeDao businessTypeDao = new BusinessTypeDao();
       BusinessItemDao businessItemDao = new BusinessItemDao();
 
+      // ResultSet에서 결과를 추출하여 Company 객체 생성
+      // ResultSetから結果を抽出して当社オブジェクトを作成
       if (rs.next()) {
         int companyCode = rs.getInt("company_code");
         int businessTypeCode = rs.getInt("business_type_code");
@@ -101,10 +109,8 @@ public class CompanyDao {
             address, phoneNumber, faxNumber);
       }
 
-      if (company != null) {
-        System.out.println(company.getCompanyName());
-      }
-
+      // 생성된 Company 객체 반환
+      // 生成された当社オブジェクトの返却
       return company;
     } finally {
       JdbcUtil.close(rs);
@@ -112,6 +118,8 @@ public class CompanyDao {
     }
   }
 
+  // 회사 정보를 추가하는 메서드
+  // 会社情報を追加するメソッド
   public void insert(Connection conn, Company company) throws SQLException {
     String sql = "INSERT INTO company "
         + "(company_code, business_type_code, business_item_code, id, password, register_date, "
@@ -139,7 +147,8 @@ public class CompanyDao {
     }
   }
 
-  // 修正時に使用するアップデートメソッド
+  // 회사 정보를 수정하는 메서드
+  // 会社情報を修正するメソッド
   public void update(Connection conn, Company company) throws SQLException {
     String sql = "UPDATE company "
         + "SET business_type_code = ?, business_item_code = ?, password = ?, company_name = ?, ceo_name = ?, "
@@ -160,6 +169,7 @@ public class CompanyDao {
       pstmt.setString(12, company.getFaxNumber());
       pstmt.setInt(13, company.getCompanyCode());
 
+      // SQL 실행
       pstmt.executeUpdate();
     }
   }

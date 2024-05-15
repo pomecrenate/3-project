@@ -22,8 +22,10 @@ public class JoinHandler implements CommandHandler {
   @Override
   public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
     if (request.getMethod().equalsIgnoreCase("GET")) { // GET 요청이면 회원가입 페이지로 이동
+    												   // GETリクエストがあれば会員登録ページに移動
       return processForm(request, response);
     } else if (request.getMethod().equalsIgnoreCase("POST")) { // POST 요청이면 회원가입 요청
+    														   // POSTリクエストであれば会員登録リクエスト
       return processSubmit(request, response);
     } else {
       response.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
@@ -32,9 +34,11 @@ public class JoinHandler implements CommandHandler {
   }
 
   // 회원가입 페이지로 이동
+  //会員登録ページに移動
   private String processForm(HttpServletRequest request, HttpServletResponse response) {
 
     // option에 value 전달
+	// オプションに値を渡す
     Map<Integer, String> businessTypes = getBusinessTypeService.get();
     request.setAttribute("businessTypes", businessTypes);
 
@@ -45,8 +49,10 @@ public class JoinHandler implements CommandHandler {
   }
 
   // 회원가입 요청
+  //会員登録リクエスト
   private String processSubmit(HttpServletRequest request, HttpServletResponse response) {
     // option에 value 전달
+	// オプションに値を渡す
     Map<Integer, String> businessTypes = getBusinessTypeService.get();
     request.setAttribute("businessTypes", businessTypes);
 
@@ -74,17 +80,21 @@ public class JoinHandler implements CommandHandler {
     request.setAttribute("errors", errors);
 
     // 에러 검증
+    // エラー検証
     joinRequest.validate(errors);
 
     // 에러가 있으면 회원가입 페이지로 이동
+    // エラーがあれば会員登録ページに移動
     if (!errors.isEmpty()) {
       return FORM_VIEW;
     }
 
     try { // 가입 성공하면 가입 완료 페이지로 이동
+    	  // 登録成功したら登録完了ページに移動
       joinService.join(joinRequest);
       return SUCCESS_VIEW;
     } catch (DuplicateIdException e) { // 아이디가 중복되면 에러 발생 및 회원가입 페이지로 이동
+    								   // IDが重複する場合はエラー発生し、会員登録ページに移動
       errors.put("duplicateId", Boolean.TRUE);
       return FORM_VIEW;
     }
