@@ -25,7 +25,26 @@ public class Company {
     super(); 
   } 
  
-  public Company(int companyCode, BusinessType businessType, BusinessItem businessItem, String id, 
+  public Company(int companyCode, BusinessType businessType, BusinessItem businessItem, String password,
+		String companyName, String ceoName, String businessNumber, String corporateNumber, LocalDate establishmentDate,
+		String website, String address, String phoneNumber, String faxNumber) {
+	super();
+	this.companyCode = companyCode;
+	this.businessType = businessType;
+	this.businessItem = businessItem;
+	this.password = password;
+	this.companyName = companyName;
+	this.ceoName = ceoName;
+	this.businessNumber = businessNumber;
+	this.corporateNumber = corporateNumber;
+	this.establishmentDate = establishmentDate;
+	this.website = website;
+	this.address = address;
+	this.phoneNumber = phoneNumber;
+	this.faxNumber = faxNumber;
+}
+
+public Company(int companyCode, BusinessType businessType, BusinessItem businessItem, String id, 
       String password, LocalDate registerDate, String companyName, String ceoName, 
       String businessNumber, String corporateNumber, LocalDate establishmentDate, String website, 
       String address, String phoneNumber, String faxNumber) { 

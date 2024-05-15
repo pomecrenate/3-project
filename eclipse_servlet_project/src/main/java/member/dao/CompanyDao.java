@@ -138,7 +138,7 @@ public class CompanyDao {
       pstmt.executeUpdate();
     }
   }
-
+  // 修正時に使用するアップデートメソッド
   public void update(Connection conn, Company company) throws SQLException {
     String sql = "UPDATE company "
         + "SET business_type_code = ?, business_item_code = ?, password = ?, company_name = ?, ceo_name = ?, "

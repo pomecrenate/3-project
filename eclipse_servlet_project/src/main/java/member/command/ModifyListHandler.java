@@ -33,7 +33,7 @@ public class ModifyListHandler implements CommandHandler {
 		List<Employee> employees = ModifyListService.selectModifyList(companyCode);
 
 		request.setAttribute("employees", employees);
-		return "/WEB-INF/view/employeeList.jsp";
+		return "/employeeList.do";
 	}
 
 }

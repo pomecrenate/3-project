@@ -72,7 +72,7 @@ public class EmployeeDao {
 		}
 	}
 
-	// modifyEmployeeInfo
+	// 修正作業時に社員リストを表示するメソッド
 	public List<Employee> selectModifyList(Connection conn, int code)throws SQLException{
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;

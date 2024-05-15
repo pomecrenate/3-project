@@ -6,7 +6,7 @@ import java.util.Map;
 import member.model.Company;
 import member.model.Department;
 import member.model.Position;
-
+// 社員情報修正時の情報集合
 public class ModifyEmployeeRequest {
 
 	private int employeeCode; // 社員コード

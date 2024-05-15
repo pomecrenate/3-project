@@ -262,12 +262,12 @@ $( document ).ready( function() {
 			<div class="navi_2017">
 				<ul class="navi_L_2017">
 					<li class="n01">
-						<button onclick="location.href='getCompany.do'" home view 넣기"' title="ホ-ム">
+						<button onclick="location.href='getCompany.do'" title="ホ-ム">
 							<span><strong>ホ-ム</strong></span>
 						</button>
 					</li>
 					<li class="n02">
-						<button onclick="location.href='register.do'" 사원등록 view 넣기"' title="社員登録">
+						<button onclick="location.href='register.do'" title="社員登録">
 							<span><strong>社員登録</strong></span>
 						</button>
 					</li>

@@ -470,16 +470,8 @@ select {
 								<option value="日雇い">日雇い</option>
 					</select>
 					 <input type="hidden" id="selectedValueInput" name="selectedValue">
-								선택된 값 :<span id="selectedValue"></span>
+								선택된 값 :<span id="selectedEmplymentType"></span>
 					
-					<%-- <select name="employmentTypeCode">
-						<option value="0">--雇用形態--</option>
-						<c:forEach var="employmentType" items="${positionCodes}">
-							<option value="${employmentType.key}"
-								${employmentType.key == param.employmentType ? 'selected' : '' }>
-								${employmentType.value}</option>
-						</c:forEach>
-					</select> --%>
 				</p>
 				<br>
 			</div>
@@ -548,14 +540,14 @@ select {
               console.log("Selected position:", selectedText);
              document.getElementById("selectedPosition").innerText = selectedText;
          };
-      	 document.getElementsByName("selectedEmploymentTypeCode")[0].onchange = function() {
+      	 document.getElementsByName("employmentType")[0].onchange = function() {
              // 선택된 옵션의 인덱스(index)를 가져옴
              var selectedIndex = this.selectedIndex;
              // 선택된 옵션의 텍스트를 가져옴
              var selectedText = this.options[selectedIndex].text;
              // 선택된 값을 표시하는 span 요소를 가져와서 선택된 텍스트로 업데이트
               console.log("Selected employmentTypeCode:", selectedText);
-             document.getElementById("selectedEmploymentTypeCode").innerText = selectedText;
+             document.getElementById("selectedEmplymentType").innerText = selectedText;
          };
     };
     

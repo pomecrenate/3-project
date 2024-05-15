@@ -347,42 +347,73 @@ $( document ).ready( function() {
 
 <!-- 본인 틀 넣으면됨 -->
 <div class="container">
-    <!-- 수정 테이블 보여주기 -->
+    <!-- 수정 테이블 보여주기, 修正テーブルの表示 -->
     <div id="main_container">
-        <!-- 회사 정보 수정 폼 -->
+        <!-- 회사 정보 수정 폼, 会社情報修正フォーム -->
         <div class="modify_form_container">
-            <h2>회사 정보 수정</h2>
+            <h2>会社情報修正</h2>
             <form action="modifyCompany.do" method="post">
-                <!-- 회사 정보 입력 폼 -->
-                <label for="companyName">회사명:</label>
-                <input type="text" id="companyName" name="companyName" required><br>
+            	<input type='hidden' name="companyCode" value="${company.companyCode}">
+                <!-- 회사 정보 입력 폼, 会社情報入力フォーム -->
 
-                <label for="ceoName">대표자명:</label>
-                <input type="text" id="ceoName" name="ceoName" required><br>
+					<p>
+						部署コード : <br> <select name="businessTypeCode" required>
+							<option value="0" selected disabled hidden>--部署--</option>
+							<c:forEach var="businessType" items="${businessTypes}">
+								<option value="${businessType.key}"
+									${businessType.key == param.businessType ? 'selected' : '' }>
+									${businessType.value}</option>
+							</c:forEach>
+						</select>
+						<c:if test="${errors.businessTypeCode}">部署を選択してください。</c:if>
+					</p>
 
-                <label for="businessNumber">사업자등록번호:</label>
-                <input type="text" id="businessNumber" name="businessNumber" required><br>
+					<p>
+						部署コード : <br> <select name="businessItemCode" required>
+							<option value="0" selected disabled hidden>--部署--</option>
+							<c:forEach var="businessItem" items="${businessItems}">
+								<option value="${businessItem.key}"
+									${businessItem.key == param.businessItem ? 'selected' : '' }>
+									${businessItem.value}</option>
+							</c:forEach>
+						</select>
+						<c:if test="${errors.businessItemCode}">部署を選択してください。</c:if>
+					</p>
+				<label for="companyName">ID:</label>
+                <input type="text" id="id" name="id" required value="${ company.id }"><br>
+                
+				<label for="companyName">Password:</label>
+                <input type="text" id="password" name="password" required value="${ company.password }"><br>
+                
+				<label for="companyName">社名:</label>
+                <input type="text" id="companyName" name="companyName" required value="${ company.companyName }"><br>
+                
+                <label for="ceoName">代表者名:</label>
+                <input type="text" id="ceoName" name="ceoName" required value="${ company.ceoName }"><br>
 
-                <label for="corporateNumber">법인등록번호:</label>
-                <input type="text" id="corporateNumber" name="corporateNumber" required><br>
+                <label for="businessNumber">事業者番号:</label>
+                <input type="text" id="businessNumber" name="businessNumber" required value="${ company.businessNumber }"><br>
 
-                <label for="establishmentDate">설립일:</label>
-                <input type="date" id="establishmentDate" name="establishmentDate" required><br>
+                <label for="corporateNumber">法人登録番号:</label>
+                <input type="text" id="corporateNumber" name="corporateNumber" required value="${ company.corporateNumber }"><br>
 
-                <label for="website">웹사이트:</label>
-                <input type="url" id="website" name="website"><br>
+                <label for="establishmentDate">設立日:</label>
+                <input type="date" id="establishmentDate" name="establishmentDate" required value="${ company.establishmentDate }"><br>
 
-                <label for="address">주소:</label>
-                <input type="text" id="address" name="address" required><br>
+                <label for="website">ホームページ:</label>
+                <input type="text" id="website" name="website" value="${ company.website }"><br>
 
-                <label for="phoneNumber">전화번호:</label>
-                <input type="tel" id="phoneNumber" name="phoneNumber" required><br>
+                <label for="address">事業場の住所:</label>
+                <input type="text" id="address" name="address" required value="${ company.address }"><br>
 
-                <label for="faxNumber">팩스번호:</label>
-                <input type="tel" id="faxNumber" name="faxNumber"><br>
+                <label for="phoneNumber">電話番号:</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" required value="${ company.phoneNumber }"><br>
+
+                <label for="faxNumber">ファックス番号:</label>
+                <input type="tel" id="faxNumber" name="faxNumber" value="${ company.faxNumber }"><br>
 
                 <!-- 수정 버튼 -->
-                <button type="submit">수정</button>
+                <button type="submit">修整</button>
             </form>
         </div>
     </div>

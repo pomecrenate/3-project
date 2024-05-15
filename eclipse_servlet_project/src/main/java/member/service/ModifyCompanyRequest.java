@@ -6,7 +6,7 @@ import java.util.Map;
 import member.model.Company;
 import member.model.Department;
 import member.model.Position;
-
+// 会社情報を修正する際の情報の集合
 public class ModifyCompanyRequest {
 
 	private int companyCode;
