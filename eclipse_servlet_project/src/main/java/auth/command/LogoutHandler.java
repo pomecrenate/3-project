@@ -11,11 +11,11 @@ public class LogoutHandler implements CommandHandler {
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession(false);
 
-		if (session != null) { // 세션이 존재하면 세션 삭제
+		if (session != null) { // 세션이 존재하면 세션 삭제 | セッションが存在する場合は、セッションを削除します
 			session.invalidate();
 		}
 
-		// 홈페이지로 이동
+		// 홈페이지로 이동 | ホームページへ移動
 		response.sendRedirect(request.getContextPath() + "/index.jsp");
 
 		return null;

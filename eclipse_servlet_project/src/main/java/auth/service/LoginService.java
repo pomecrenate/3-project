@@ -14,14 +14,17 @@ public class LoginService {
   public User login(String userId, String password) { 
     try (Connection conn = ConnectionProvider.getConnection()) { 
       // 아이디 검색 
+      // ID検索
       Company company = companyDao.selectById(conn, userId); 
  
       // 아이디 없으면 예외 
+      // IDがなければ例外
       if (company == null) { 
         throw new LoginFailException(); 
       } 
  
       // 암호틀리면 예외 
+      // 暗号を間違えると例外
       if (!company.matchPassword(password)) { 
         throw new LoginFailException(); 
       } 
