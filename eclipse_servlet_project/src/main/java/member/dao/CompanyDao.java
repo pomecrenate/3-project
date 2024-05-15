@@ -138,12 +138,13 @@ public class CompanyDao {
       pstmt.executeUpdate();
     }
   }
+
   // 修正時に使用するアップデートメソッド
   public void update(Connection conn, Company company) throws SQLException {
     String sql = "UPDATE company "
         + "SET business_type_code = ?, business_item_code = ?, password = ?, company_name = ?, ceo_name = ?, "
         + "business_number = ?, corporate_number = ?, establishment_date = ?, website = ?, address = ?, "
-        + "phone_number = ?, fax_number = ? " + "WHERE id = ?";
+        + "phone_number = ?, fax_number = ? " + "WHERE company_code = ?";
     try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
       pstmt.setInt(1, company.getBusinessType().getBusinessTypeCode());
       pstmt.setInt(2, company.getBusinessItem().getBusinessItemCode());
@@ -157,7 +158,7 @@ public class CompanyDao {
       pstmt.setString(10, company.getAddress());
       pstmt.setString(11, company.getPhoneNumber());
       pstmt.setString(12, company.getFaxNumber());
-      pstmt.setString(13, company.getId());
+      pstmt.setInt(13, company.getCompanyCode());
 
       pstmt.executeUpdate();
     }

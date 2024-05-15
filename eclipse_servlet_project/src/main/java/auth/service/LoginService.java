@@ -1,8 +1,8 @@
 package auth.service; 
  
 import java.sql.Connection; 
-import java.sql.SQLException; 
- 
+import java.sql.SQLException;
+import auth.model.User;
 import exception.LoginFailException; 
 import jdbc.connection.ConnectionProvider; 
 import member.dao.CompanyDao; 

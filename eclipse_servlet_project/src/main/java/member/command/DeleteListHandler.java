@@ -4,9 +4,8 @@ import java.util.List;
  
 import javax.servlet.http.HttpServletRequest; 
 import javax.servlet.http.HttpServletResponse;
-
+import auth.model.User;
 import auth.service.PermissionChecker;
-import auth.service.User;
 import member.model.Company;
 import member.model.Employee;
 import member.service.DeleteListService;

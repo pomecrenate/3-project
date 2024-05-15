@@ -339,26 +339,21 @@ $( document ).ready( function() {
 }
 </style>
 
-   <script type="text/javascript">
- 
- 
-
-</script>
 
 <!-- 본인 틀 넣으면됨 -->
-<div class="container">
+	<div class="container">
+	<h2>会社情報修正</h2>
     <!-- 수정 테이블 보여주기, 修正テーブルの表示 -->
     <div id="main_container">
         <!-- 회사 정보 수정 폼, 会社情報修正フォーム -->
-        <div class="modify_form_container">
-            <h2>会社情報修正</h2>
+        <div class="form-container">
             <form action="modifyCompany.do" method="post">
             	<input type='hidden' name="companyCode" value="${company.companyCode}">
                 <!-- 회사 정보 입력 폼, 会社情報入力フォーム -->
 
 					<p>
 						部署コード : <br> <select name="businessTypeCode" required>
-							<option value="0" selected disabled hidden>--部署--</option>
+							<option value="0" selected hidden>--部署--</option>
 							<c:forEach var="businessType" items="${businessTypes}">
 								<option value="${businessType.key}"
 									${businessType.key == param.businessType ? 'selected' : '' }>
@@ -370,7 +365,7 @@ $( document ).ready( function() {
 
 					<p>
 						部署コード : <br> <select name="businessItemCode" required>
-							<option value="0" selected disabled hidden>--部署--</option>
+							<option value="0" selected hidden>--部署--</option>
 							<c:forEach var="businessItem" items="${businessItems}">
 								<option value="${businessItem.key}"
 									${businessItem.key == param.businessItem ? 'selected' : '' }>
@@ -379,10 +374,10 @@ $( document ).ready( function() {
 						</select>
 						<c:if test="${errors.businessItemCode}">部署を選択してください。</c:if>
 					</p>
-				<label for="companyName">ID:</label>
-                <input type="text" id="id" name="id" required value="${ company.id }"><br>
+				<label for="id">ID:</label><br>
+                <input type="text" id="id" name="id" required value="${ company.id }" readonly="readonly"><br>
                 
-				<label for="companyName">Password:</label>
+				<label for="password">Password:</label>
                 <input type="text" id="password" name="password" required value="${ company.password }"><br>
                 
 				<label for="companyName">社名:</label>
@@ -413,7 +408,7 @@ $( document ).ready( function() {
                 <input type="tel" id="faxNumber" name="faxNumber" value="${ company.faxNumber }"><br>
 
                 <!-- 수정 버튼 -->
-                <button type="submit">修整</button>
+                <input type="submit" value="修整">
             </form>
         </div>
     </div>

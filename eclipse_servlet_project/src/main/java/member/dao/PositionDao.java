@@ -30,8 +30,6 @@ public class PositionDao {
         position = new Position(positionCode, positionName);
       }
 
-      System.out.println(position.getPositionName());
-
       return position;
     } finally {
       JdbcUtil.close(rs);

@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import auth.model.User;
 import auth.service.LoginService;
-import auth.service.User;
 import exception.LoginFailException;
 import mvc.command.CommandHandler;
 

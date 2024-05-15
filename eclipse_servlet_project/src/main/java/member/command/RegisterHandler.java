@@ -5,8 +5,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import auth.service.User;
+import auth.model.User;
 import member.service.GetDepartmentService;
 import member.service.GetPositionService;
 import member.service.RegisterRequest;
