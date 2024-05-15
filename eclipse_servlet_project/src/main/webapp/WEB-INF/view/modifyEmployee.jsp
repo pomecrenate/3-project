@@ -420,7 +420,7 @@ input[type="submit"]:hover {
 }
 
 .form-container .left-column, .form-container .right-column {
-	width: 45%; /* 좌우 여백을 주기 위해 45%로 설정합니다. */
+	width: 45%; /* 좌우 여백을 주기 위해 45%로 설정합니다. 左右の余白を与えるために 45% に設定します。 */
 }
 </style>
 	<h2>Employee Information</h2>

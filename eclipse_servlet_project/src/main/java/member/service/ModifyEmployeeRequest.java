@@ -170,7 +170,7 @@ public class ModifyEmployeeRequest {
   // Null 검증
   // Null 検証
   private void checkEmpty(Map<String, Boolean> errors, String value, String fieldName) {
-    if (value == null || value.isEmpty()) { // 값이 없으면 에러
+    if (value == null || value.isEmpty()) { // 값이 없으면 에러, 値がなければエラー
       errors.put(fieldName, Boolean.TRUE);
     }
   }

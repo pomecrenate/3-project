@@ -75,6 +75,7 @@ public class ModifyEmployeeHandler implements CommandHandler {
       User authUser = (User) request.getSession().getAttribute("authUser");
 
       // 로그인 아이디와 회사 아이디 일치 여부
+      // ログインIDと作成者IDが一致しているかどうか
       if (!PermissionChecker.canModify(authUser.getId(), company)) {
         response.sendError(HttpServletResponse.SC_FORBIDDEN);
 
@@ -108,6 +109,7 @@ public class ModifyEmployeeHandler implements CommandHandler {
     Company company = getCompanyService.get(companyCode);
 
     // 로그인 아이디와 작성자 아이디 일치 여부
+    // ログインIDと作成者IDが一致しているかどうか
     if (!PermissionChecker.canModify(authUser.getId(), company)) {
       response.sendError(HttpServletResponse.SC_FORBIDDEN);
 
