@@ -1,6 +1,7 @@
 package auth.service; 
  
 import java.sql.Connection; 
+
 import java.sql.SQLException;
 import auth.model.User;
 import exception.LoginFailException; 

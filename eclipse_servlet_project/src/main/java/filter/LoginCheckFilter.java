@@ -18,8 +18,9 @@ public class LoginCheckFilter implements Filter {
 			throws IOException, ServletException {
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		HttpSession session = httpRequest.getSession();
-
+		// セッションがないか、セッションにログイン成功認証がない場合はログインページに移動
 		// 세션이 없거나 세션에 로그인 성공 인증이 없으면 로그인 페이지로 이동
+		// あればそのままフィルターを実行	
 		// 있으면 그대로 필터 실행
 		if (session == null || session.getAttribute("authUser") == null) {
 			HttpServletResponse httpResponse = (HttpServletResponse) response;

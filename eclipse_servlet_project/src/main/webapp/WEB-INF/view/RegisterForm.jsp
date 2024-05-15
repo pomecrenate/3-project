@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>사원 등록</title>
+<title>社員登録</title>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -57,7 +57,7 @@
 
 </head>
 <body>
-<h2>사원 등록</h2>
+<h2>社員登録</h2>
 <form action="register.do" method="post">
     
     <label for="departmentCode">部署</label>

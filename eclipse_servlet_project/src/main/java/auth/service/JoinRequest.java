@@ -130,10 +130,10 @@ public class JoinRequest {
   public void setConfirmPassword(String confirmPassword) {
     this.confirmPassword = confirmPassword;
   }
-
+  //エラー検証
   // 에러 검증
   public void validate(Map<String, Boolean> errors) {
-    // 값이 없으면 해당 컬럼 에러
+    // 값이 없으면 해당 컬럼 에러	// 値がない場合は、該当カラムエラー
     checkEmptyForInt(errors, businessTypeCode, "businessTypeCode");
     checkEmptyForInt(errors, businessItemCode, "businessItemCode");
     checkEmpty(errors, id, "id");
@@ -148,7 +148,7 @@ public class JoinRequest {
     checkEmpty(errors, phoneNumber, "phoneNumber");
     checkEmpty(errors, faxNumber, "faxNumber");
     checkEmpty(errors, confirmPassword, "confirmPassword");
-
+ // confirmPassword値があってパスワードと一致しないとnotMatchエラー
     // confirmPassword 값이 있고 암호와 일치하지 않으면 notMatch 에러
     if (!errors.containsKey("confirmPassword")) {
       if (!isPasswordEqualToConfirm()) {
@@ -156,28 +156,28 @@ public class JoinRequest {
       }
     }
   }
-
-  // 암호 일치 검증
+  //暗号一致検証
+  // 암호 일치 검증									// 暗号一致するとtrue
   private boolean isPasswordEqualToConfirm() { // 암호 일치하면 true
     return password != null && password.equals(confirmPassword);
   }
-
+  //Null検証
   // Null 검증
   private void checkEmpty(Map<String, Boolean> errors, String value, String fieldName) {
-    if (value == null || value.isEmpty()) { // 값이 없으면 에러
+    if (value == null || value.isEmpty()) { // 값이 없으면 에러	// 値がなければエラー
       errors.put(fieldName, Boolean.TRUE);
     }
   }
 
   private void checkEmptyForInt(Map<String, Boolean> errors, int value, String fieldName) {
-    if (value == 0) { // 값이 없으면 에러
+    if (value == 0) { // 값이 없으면 에러				// 値がなければエラー
       errors.put(fieldName, Boolean.TRUE);
     }
   }
 
   private void checkEmptyForLocalDate(Map<String, Boolean> errors, LocalDate value,
       String fieldName) {
-    if (value == null) { // 값이 없으면 에러
+    if (value == null) { // 값이 없으면 에러		// 値がなければエラー
       errors.put(fieldName, Boolean.TRUE);
     }
   }

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>사원 등록 완료</title>
+<title>社員登録完了</title>
 <style>
     body {
         font-family: Arial, sans-serif;
