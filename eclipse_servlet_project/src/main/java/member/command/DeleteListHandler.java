@@ -27,12 +27,15 @@ public class DeleteListHandler implements CommandHandler {
 		
 		int companyCode = company.getCompanyCode();
 		
-	    // 従業員の基本情報を取得する
+	    // 삭제할 직원 목록 가져오기 
+		//従業員の基本情報を取得する
 	    List<Employee> employees = DeleteListService.getDeleteList(companyCode);
-
+	    
+	    // 요청 속성에 직원 목록 설정
 	    // リクエスト属性に従業員リストを設定する
 	    request.setAttribute("employees", employees);
 
+	    // 삭제 목록 뷰 반환
 	    // 削除リストビューを返す
 	    return "/WEB-INF/view/deleteList.jsp";
 	}
