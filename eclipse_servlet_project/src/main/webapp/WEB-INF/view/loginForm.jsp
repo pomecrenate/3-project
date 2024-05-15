@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>로그인</title>
+<title>ログイン</title>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -92,7 +92,7 @@
             <c:if test="${ errors.password }"><span class="error">パスワードを入力してください。</span></c:if>
         </p>
         <input type="submit" value="ログイン">
-        <a href="join.do" class="register-link">社員登録</a>
+        <a href="join.do" class="register-link">ユーザー登録</a>
     </form>
 </body>
 </html>
