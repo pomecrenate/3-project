@@ -20,13 +20,14 @@ import member.model.Company;
 public class ModifyCompanyService {
 
   // Modify 메서드를 위해 필요한 객체들 불러옴. DAO의 메서드 필요함.
+  // Modifyメソッドのために必要なオブジェクトを読み込む。 DAOのメソッドが必要。
   private CompanyDao companyDao = new CompanyDao();
   private BusinessItemDao businessItemDao = new BusinessItemDao();
   private BusinessTypeDao businessTypeDao = new BusinessTypeDao();
 
 
   // 수정할 데이터, 수정될 데이터?는 ModifyCompanyRequest에 저장
-  // Modifyメソッドのために必要なオブジェクトを読み込む。 DAOのメソッドが必要。
+  // 修正データはModifyCompanyRequestに保存
   public boolean modify(ModifyCompanyRequest modifyRequest) {
     Connection conn = null;
 

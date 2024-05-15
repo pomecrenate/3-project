@@ -201,9 +201,10 @@ public class ModifyCompanyRequest {
   }
 
   // 에러 검증
+  // エラー検証
   public void validate(Map<String, Boolean> errors) {
-    // 값이 없으면 해당 컬럼 에러
-    // 회사 테이블에서 낫널인 애들만 체크엠티
+    // 값이 없으면 해당 컬럼 에러, 値がない場合は、該当カラムエラー
+    // 회사 테이블에서 낫널인 애들만 체크엠티, 社員テーブルでnot nullの値だけcheck Empty設定
     checkEmptyForInt(errors, companyCode, "companyCode");
     checkEmptyForInt(errors, businessTypeCode, "businessTypeCode");
     checkEmptyForInt(errors, businessItemCode, "businessItemCode");
@@ -223,14 +224,15 @@ public class ModifyCompanyRequest {
   }
 
   // Null 검증
+  // Null 検証
   private void checkEmpty(Map<String, Boolean> errors, String value, String fieldName) {
-    if (value == null || value.isEmpty()) { // 값이 없으면 에러
+    if (value == null || value.isEmpty()) { // 값이 없으면 에러, 値がなければエラー
       errors.put(fieldName, Boolean.TRUE);
     }
   }
 
   private void checkEmptyForInt(Map<String, Boolean> errors, int value, String fieldName) {
-    if (value == 0) { // 값이 없으면 에러
+    if (value == 0) { // 값이 없으면 에러, 値がなければエラー
       errors.put(fieldName, Boolean.TRUE);
     }
   }

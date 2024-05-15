@@ -30,7 +30,8 @@ public class ModifyEmployeeService {
 	private DepartmentDao departmentDao = new DepartmentDao();
 	private PositionDao positionDao = new PositionDao();
 
-	// 수정할 데이터, 수정될 데이터?는 ModifyEmployeeRequest에 저장
+	// 수정 데이터는 ModifyEmployeeRequest에 저장
+	// 修正データはModifyEmployeeRequestに保存
 	public void modify(ModifyEmployeeRequest modifyRequest) {
 		Connection conn = null;
 

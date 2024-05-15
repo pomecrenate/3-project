@@ -416,7 +416,7 @@ $( document ).ready( function() {
 
 <script language='Javascript'> 
         
-         // 회사 정보로 폼 필드를 채우는 함수
+         // 회사 정보로 폼 필드를 채우는 함수, 会社情報でフォームフィールドを満たす関数
          function fillCompanyForm(companyCode, businessTypeCode, businessItemCode, id, password, registerDate, companyName, ceoName, businessNumber, corporateNumber, establishmentDate, website, address, phoneNumber, faxNumber) {
              document.getElementById("companyCode").value = companyCode;
              document.getElementById("businessTypeCode").value = businessTypeCode;
@@ -435,7 +435,7 @@ $( document ).ready( function() {
              document.getElementById("faxNumber").value = faxNumber;
          }
 
-         // 클릭된 회사 정보를 가져와서 fillCompanyForm 함수를 호출하는 함수
+         // 클릭된 회사 정보를 가져와서 fillCompanyForm 함수를 호출하는 함수, クリックされた会社情報を取得してfillCompanyForm関数を呼び出す関数
          function handleCompanyClick(companyCode, businessTypeCode, businessItemCode, id, password, registerDate, companyName, ceoName, businessNumber, corporateNumber, establishmentDate, website, address, phoneNumber, faxNumber) {
              fillCompanyForm(companyCode, businessTypeCode, businessItemCode, id, password, registerDate, companyName, ceoName, businessNumber, corporateNumber, establishmentDate, website, address, phoneNumber, faxNumber);
          }
