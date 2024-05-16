@@ -17,7 +17,7 @@ public class RegisterHandler implements CommandHandler {
 	private static final String SUCCESS_VIEW = "/WEB-INF/view/RegisterSuccess.jsp"; // 등록 성공 뷰 경로 | 登録成功ビューのパス
 	private RegisterService registerService = new RegisterService(); // RegisterService 인스턴스 생성  |  RegisterServiceインスタンスの生成
 	private GetDepartmentService getDepartmentService = new GetDepartmentService(); // GetDepartmentService 인스턴스 생성 | GetDepartmentServiceインスタンスの生成
-	private GetPositionService GetpositionService = new GetPositionService(); // GetPositionService 인스턴스 생성 | GetPositionServiceインスタンスの生成
+	private GetPositionService getPositionService = new GetPositionService(); // GetPositionService 인스턴스 생성 | GetPositionServiceインスタンスの生成
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -37,7 +37,7 @@ public class RegisterHandler implements CommandHandler {
 		Map<Integer, String> departments = getDepartmentService.get();  // 부서 정보 가져오기 | 部署情報を取得する
 		request.setAttribute("departments", departments); // 부서 정보를 request에 저장 | 部署情報をリクエストに保存する
 
-		Map<Integer, String> positions = getDepartmentService.get();  // 직책 정보 가져오기 | 役職情報を取得する
+		Map<Integer, String> positions =  getPositionService.get();// 직책 정보 가져오기 | 役職情報を取得する
 		request.setAttribute("positions", positions); // 직책 정보를 request에 저장 | 役職情報をリクエストに保存する
 
 		return FORM_VIEW; // 등록 폼 뷰 반환 | 登録フォームビューを返す
@@ -51,7 +51,7 @@ public class RegisterHandler implements CommandHandler {
 		Map<Integer, String> departments = getDepartmentService.get(); // 부서 정보 가져오기 |  部署情報を取得する
 		request.setAttribute("departments", departments); // 부서 정보를 request에 저장 | 部署情報をリクエストに保存する
 
-		Map<Integer, String> positions = GetpositionService.get(); // 직책 정보 가져오기 | 役職情報を取得する
+		Map<Integer, String> positions = getPositionService.get(); // 직책 정보 가져오기 | 役職情報を取得する
 		request.setAttribute("positions", positions); // 직책 정보를 request에 저장 | 役職情報をリクエストに保存する
 
 		RegisterRequest registerRequest = new RegisterRequest(); // 사원 등록 요청 객체 생성 | 従業員登録要求オブジェクトの生成
